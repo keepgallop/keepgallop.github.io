@@ -73,8 +73,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="Leoch's World" type="application/atom+xml" />
 
@@ -420,9 +418,9 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="liuchi_email@foxmail.com" target="_blank" title="E-Mail">
+                    <a href="http://blog.csdn.net/u013084616" target="_blank" title="CSDN">
                       
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                        <i class="fa fa-fw fa-handshake-o"></i>CSDN</a>
                   </span>
                 
             </div>
@@ -657,6 +655,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zhawh66Oxy4QLigTnD3utOpr-gzGzoHsz',
+        appKey: 'XBqE0mM6fXy9setVP0a1c7ET# your leancloud application appkey',
+        placeholder: 'Just go go',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
