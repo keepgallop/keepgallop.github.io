@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,代码规范,笔记," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="Welcome to Leoch&apos;s World">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leoch&#39;s World">
-<meta property="og:url" content="http://leoch.xyz/index.html">
+<meta name="description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；  函数可以同时返回多个值，但其实就是一个tuple  默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！  *args是可变参数，args接收的是一个tuple；  **kw是关键字参数，kw接收的是一个dict。  调用函数时如何传入可变参数和关键">
+<meta name="keywords" content="Python,代码规范,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="廖雪粉Python教程笔记及代码规范">
+<meta property="og:url" content="http://leoch.xyz/2018/04/22/0422-171151/index.html">
 <meta property="og:site_name" content="Leoch&#39;s World">
-<meta property="og:description" content="Welcome to Leoch&apos;s World">
+<meta property="og:description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；  函数可以同时返回多个值，但其实就是一个tuple  默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！  *args是可变参数，args接收的是一个tuple；  **kw是关键字参数，kw接收的是一个dict。  调用函数时如何传入可变参数和关键">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-22T09:15:02.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leoch&#39;s World">
-<meta name="twitter:description" content="Welcome to Leoch&apos;s World">
+<meta name="twitter:title" content="廖雪粉Python教程笔记及代码规范">
+<meta name="twitter:description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；  函数可以同时返回多个值，但其实就是一个tuple  默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！  *args是可变参数，args接收的是一个tuple；  **kw是关键字参数，kw接收的是一个dict。  调用函数时如何传入可变参数和关键">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://leoch.xyz/"/>
+  <link rel="canonical" href="http://leoch.xyz/2018/04/22/0422-171151/"/>
 
 
 
 
 
-  <title>Leoch's World</title>
+  <title>廖雪粉Python教程笔记及代码规范 | Leoch's World</title>
   
 
 
@@ -155,8 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/keepgallop" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,9 +260,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -291,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/22/0422-171151/" itemprop="url">廖雪粉Python教程笔记及代码规范</a></h1>
+          <h1 class="post-title" itemprop="name headline">廖雪粉Python教程笔记及代码规范</h1>
         
 
         <div class="post-meta">
@@ -386,9 +385,7 @@
       
 
       
-        
-          
-            <a id="more"></a>
+        <a id="more"></a>
 <h1 id="廖雪峰python教程笔记"><a href="#廖雪峰python教程笔记" class="headerlink" title="廖雪峰python教程笔记"></a>廖雪峰python教程笔记</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><ul>
 <li><p>如果有必要，可以先对参数的数据类型做检查；</p>
 </li>
@@ -652,8 +649,6 @@
 </li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -662,369 +657,110 @@
 
     <div>
       
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/04/22/0422-171151/">廖雪粉Python教程笔记及代码规范</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Leoch 的个人博客">Leoch</a></p>
+  <p><span>发布时间:</span>2018年04月22日 - 17:04</p>
+  <p><span>最后更新:</span>2018年04月22日 - 17:04</p>
+  <p><span>原始链接:</span><a href="/2018/04/22/0422-171151/" title="廖雪粉Python教程笔记及代码规范">http://leoch.xyz/2018/04/22/0422-171151/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://leoch.xyz/2018/04/22/0422-171151/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
     </div>
     
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏我1毛！Click "Donate" to support my creation :)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Leoch WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Leoch Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/04/04/0404-143932/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leoch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leoch's World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/04/0404-143932/" itemprop="url">[跟我一起读论文] Visualizing Data using t-SNE</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T14:39:32+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/跟我一起读论文/" itemprop="url" rel="index">
-                    <span itemprop="name">跟我一起读论文</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-
+            <a href="/tags/代码规范/" rel="tag"># 代码规范</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/04/0404-143932/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/04/0404-143932/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-
-          
-          
-             <span id="/2018/04/04/0404-143932/" class="leancloud_visitors" data-flag-title="[跟我一起读论文] Visualizing Data using t-SNE">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Hot&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 ℃<span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <blockquote>
-<p><strong>ABSTRACT</strong>: t-distributed stochastic neighbor embedding (t-SNE) 由“神经网络之父” Geoffrey Hinton在2008年提出。Fine，这已经为我们拜读原作“Visualizing Data using t-SNE”提供了充分条件……</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/04/0404-143932/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/04/0404-143932/" rel="next" title="[跟我一起读论文] Visualizing Data using t-SNE">
+                <i class="fa fa-chevron-left"></i> [跟我一起读论文] Visualizing Data using t-SNE
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    <div>
-      
-    </div>
-    
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/04/04/cjgaltkq00000oi3q6bb9f25g/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leoch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leoch's World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/04/cjgaltkq00000oi3q6bb9f25g/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T12:05:18+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/04/cjgaltkq00000oi3q6bb9f25g/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/04/cjgaltkq00000oi3q6bb9f25g/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/04/04/cjgaltkq00000oi3q6bb9f25g/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Hot&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 ℃<span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Hey there!</p>
-<p>This is the WELCOME article in my blog, used to test the Markdown performance.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/04/cjgaltkq00000oi3q6bb9f25g/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1034,182 +770,37 @@
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/03/29/cjgaltkqc0006oi3qeklikx6f/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leoch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leoch's World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/29/cjgaltkqc0006oi3qeklikx6f/" itemprop="url">Vultr + shadowsocks 搭建科学上网代理服务器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T20:04:11+08:00">
-                2018-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">Tutorial</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/29/cjgaltkqc0006oi3qeklikx6f/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/29/cjgaltkqc0006oi3qeklikx6f/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/03/29/cjgaltkqc0006oi3qeklikx6f/" class="leancloud_visitors" data-flag-title="Vultr + shadowsocks 搭建科学上网代理服务器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Hot&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 ℃<span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>作为一个积极与（xiang）世（kan）界（tuo）接（yi）轨（wu）的大好青年，科学上网姿势一定要到位。与其花大价钱去租买各种代理软件，时不时还面临被封IP血本无归的风险，<strong>何不自己租一台境外server搭建自己的服务呢</strong>？毕竟我等工科屌丝动手撸的能力还是阔以的。</p>
-<p>搭建一台科学上网server，提起里很麻烦，其实不然，跟着教程，准备一点money（毕竟免费无好货），terminal下一阵操作复制粘贴，就大功告成。具体为以下几步：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/29/cjgaltkqc0006oi3qeklikx6f/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1217,6 +808,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDg1OC8xMTM5NQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1237,8 +837,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1325,6 +934,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#廖雪峰python教程笔记"><span class="nav-number">1.</span> <span class="nav-text">廖雪峰python教程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-函数"><span class="nav-number">1.1.</span> <span class="nav-text">1 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-高级特性"><span class="nav-number">1.2.</span> <span class="nav-text">2 高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-切片"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-迭代"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-列表生成器"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 列表生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-生成器（generator）"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 生成器（generator）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-迭代器"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 迭代器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.3.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">高级函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-reduce"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">map/reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sorted"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">sorted()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回函数"><span class="nav-number">1.3.2.</span> <span class="nav-text">返回函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decorator"><span class="nav-number">1.3.3.</span> <span class="nav-text">Decorator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数"><span class="nav-number">1.3.4.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.4.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建模块"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释规范"><span class="nav-number">1.5.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.5.1.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文档字符串"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">文档字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块注释"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">模块注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数和方法"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">函数和方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的注释"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">类的注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块注释和行注释"><span class="nav-number">1.5.1.5.</span> <span class="nav-text">块注释和行注释</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.6.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和实例"><span class="nav-number">1.6.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">1.6.2.</span> <span class="nav-text">访问限制</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1485,6 +1110,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1513,6 +1142,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
