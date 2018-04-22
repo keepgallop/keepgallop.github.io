@@ -8,6 +8,7 @@ Hey there!
 
 This is the WELCOME article in my blog, used to test the Markdown performance.
 
+<!--more-->
 
 # title
 
