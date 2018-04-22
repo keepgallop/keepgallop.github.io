@@ -33,7 +33,7 @@ copyright: true
   - 可变参数既可以直接传入：`func(1, 2, 3)`，又可以先组装list或tuple，再通过`*args`传入：`func(*(1, 2, 3))`
   - 关键字参数既可以直接传入：`func(a=1, b=2)`，又可以先组装dict，再通过`**kw`传入：`func(**{'a': 1, 'b': 2})`
 
-- **使用`*args`和`**kw`是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。**
+- 使用`*args`和`**kw`是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
 
 - 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
 
@@ -370,17 +370,17 @@ if __name__=='__main__':
 
 确保对模块, 函数, 方法和行内注释使用正确的风格
 
-#### 文档字符串
+### 文档字符串
 
 - Python有一种独一无二的的注释方式: 使用文档字符串. 文档字符串是包, 模块, 类或函数里的第一个语句. 这些字符串可以通过对象的__doc__成员被自动提取, 并且被pydoc所用. (你可以在你的模块上运行pydoc试一把, 看看它长什么样). 我们对文档字符串的惯例是使用三重双引号"""( PEP-257 ).
 
 - 一个文档字符串应该这样组织: 首先是一行以句号, 问号或惊叹号结尾的概述(或者该文档字符串单纯只有一行). 接着是一个空行. 接着是文档字符串剩下的部分, 它应该与文档字符串的第一行的第一个引号对齐. 下面有更多文档字符串的格式化规范.
 
-#### 模块注释
+### 模块注释
 
 每个文件应该包含一个许可样板. 根据项目使用的许可(例如, Apache 2.0, BSD, LGPL, GPL), 选择合适的样板.
 
-#### 函数和方法
+### 函数和方法
 
 下文所指的函数,包括函数, 方法, 以及生成器.
 
@@ -441,7 +441,7 @@ def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
     pass
 ```
 
-#### 类的注释
+### 类的注释
 
 类应该在其定义下有一个用于描述该类的文档字符串. 如果你的类有公共属性(Attributes), 那么文档中应该有一个属性(Attributes)段. 并且应该遵守和函数参数相同的格式.
 
@@ -466,7 +466,7 @@ class SampleClass(object):
         """Performs operation blah."""
 ```
 
-#### 块注释和行注释
+### 块注释和行注释
 
 最需要写注释的是代码中那些技巧性的部分. 如果你在下次 代码审查 的时候必须解释一下, 那么你应该现在就给它写注释. 对于复杂的操作, 应该在其操作开始前写上若干行注释. 对于不是一目了然的代码, 应在其行尾添加注释.
 
@@ -537,7 +537,7 @@ Exceptions | CapWords
 Functions | lower_with_under() | _lower_with_under()
 Global/Class Constants | CAPS_WITH_UNDER | _CAPS_WITH_UNDER
 Global/Class Variables | lower_with_under | _lower_with_under
-Instance | Variables | lower_with_under | _lower_with_under (protected) or __lower_with_under (private)
+Instance Variables | lower_with_under | _lower_with_under (protected) or __lower_with_under (private)
 Method Names | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private)
 Function/Method Parameters | lower_with_under
 Local Variables | lower_with_under
