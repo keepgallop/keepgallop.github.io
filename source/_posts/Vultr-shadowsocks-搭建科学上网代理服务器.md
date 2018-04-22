@@ -1,13 +1,11 @@
----
 title: Vultr + shadowsocks 搭建科学上网代理服务器
-date: 2018-03-29 20:04:11
-tags:    
-    - Vultr
-    - shadowsocks
-    - 科学上网
+tags:
+  - Vultr
+  - shadowsocks
+  - 科学上网
 categories: Tutorial
+date: 2018-03-29 20:04:11
 ---
-
 作为一个积极与（xiang）世（kan）界（tuo）接（yi）轨（wu）的大好青年，科学上网姿势一定要到位。与其花大价钱去租买各种代理软件，时不时还面临被封IP血本无归的风险，**何不自己租一台境外server搭建自己的服务呢**？毕竟我等工科屌丝动手撸的能力还是阔以的。
 
 搭建一台科学上网server，提起里很麻烦，其实不然，跟着教程，准备一点money（毕竟免费无好货），terminal下一阵操作复制粘贴，就大功告成。具体为以下几步：
@@ -189,14 +187,15 @@ shadowsocks支持各桌面和移动系统，各版本如下：
     另外还可以根据自己需要勾选“PAC自动模式”和“全局模式”，以及在“偏好设置”中开启开机自启
     > + PAC自动模式：国内可以访问的站点直接访问，不能直接访问的再走shadowsocks代理，建议选择这种模式
     > + 全局模式：全局使用shadowsocks代理
+    
 
-    配置完成后，我们就可以开始做一些**不可言喻的事情**了
+配置完成后，我们就可以开始做一些**不可言喻的事情**了
 
-    ![youtube](Vultr-shadowsocks-搭建科学上网代理服务器/youtube.jpeg)
+![youtube](Vultr-shadowsocks-搭建科学上网代理服务器/youtube.jpeg)
 
-    额，不好意思放错图了，这张才是
+额，不好意思放错图了，这张才是
 
-    ![google](Vultr-shadowsocks-搭建科学上网代理服务器/google.png)
+![google](Vultr-shadowsocks-搭建科学上网代理服务器/google.png)
 
 2. Android
 
