@@ -10,7 +10,7 @@ categories:
     - Python编程笔记
 copyright: true
 ---
-<!--more-->
+
 # 廖雪峰python教程笔记
 
 ## 1 函数
@@ -18,6 +18,7 @@ copyright: true
 - 如果有必要，可以先对参数的数据类型做检查；
 
 - 函数体内部可以用return随时返回函数结果；
+<!--more-->
 
 - 函数可以同时返回多个值，但其实就是一个tuple
 

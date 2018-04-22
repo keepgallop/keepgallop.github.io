@@ -191,8 +191,11 @@ shadowsocks支持各桌面和移动系统，各版本如下：
     > + 全局模式：全局使用shadowsocks代理
 
     配置完成后，我们就可以开始做一些**不可言喻的事情**了
+
     ![youtube](Vultr-shadowsocks-搭建科学上网代理服务器/youtube.jpeg)
+
     额，不好意思放错图了，这张才是
+
     ![google](Vultr-shadowsocks-搭建科学上网代理服务器/google.png)
 
 2. Android
