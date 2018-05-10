@@ -529,19 +529,19 @@ print(xiaotong.gender) # Error
     ```
 - Python之父Guido推荐的规范
 
-Type | Public | Internal
----|---|---
-Modules | lower_with_under | _lower_with_under
-Packages | lower_with_under |
-Classes | CapWords | _CapWords
-Exceptions | CapWords
-Functions | lower_with_under() | _lower_with_under()
-Global/Class Constants | CAPS_WITH_UNDER | _CAPS_WITH_UNDER
-Global/Class Variables | lower_with_under | _lower_with_under
-Instance Variables | lower_with_under | _lower_with_under (protected) or __lower_with_under (private)
-Method Names | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private)
-Function/Method Parameters | lower_with_under
-Local Variables | lower_with_under
+| Type                       | Public             | Internal                                                          |
+| -------------------------- | ------------------ | ----------------------------------------------------------------- |
+| Modules                    | lower_with_under   | _lower_with_under                                                 |
+| Packages                   | lower_with_under   |
+| Classes                    | CapWords           | _CapWords                                                         |
+| Exceptions                 | CapWords           |
+| Functions                  | lower_with_under() | _lower_with_under()                                               |
+| Global/Class Constants     | CAPS_WITH_UNDER    | _CAPS_WITH_UNDER                                                  |
+| Global/Class Variables     | lower_with_under   | _lower_with_under                                                 |
+| Instance Variables         | lower_with_under   | _lower_with_under (protected) or __lower_with_under (private)     |
+| Method Names               | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private) |
+| Function/Method Parameters | lower_with_under   |
+| Local Variables            | lower_with_under   |
 
 - 如果一个类不继承自其它类, 就显式的从object继承. 嵌套类也一样。
 - 练习
@@ -768,4 +768,3 @@ class Chain(object):
 path = Chain().a.b.user('leoch').file('image')
 print(path)
 ```
-
