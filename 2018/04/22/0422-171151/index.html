@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
+<meta name="description" content="廖雪峰Python教程笔记及代码规范（一）函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
 <meta name="keywords" content="Python,代码规范,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="廖雪粉Python教程笔记及代码规范">
+<meta property="og:title" content="廖雪峰Python教程笔记及代码规范（一）">
 <meta property="og:url" content="http://leoch.xyz/2018/04/22/0422-171151/index.html">
 <meta property="og:site_name" content="Leoch&#39;s World">
-<meta property="og:description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
+<meta property="og:description" content="廖雪峰Python教程笔记及代码规范（一）函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-22T09:39:50.509Z">
+<meta property="og:updated_time" content="2018-05-10T09:49:07.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="廖雪粉Python教程笔记及代码规范">
-<meta name="twitter:description" content="廖雪峰python教程笔记1 函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
+<meta name="twitter:title" content="廖雪峰Python教程笔记及代码规范（一）">
+<meta name="twitter:description" content="廖雪峰Python教程笔记及代码规范（一）函数 如果有必要，可以先对参数的数据类型做检查；  函数体内部可以用return随时返回函数结果；">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>廖雪粉Python教程笔记及代码规范 | Leoch's World</title>
+  <title>廖雪峰Python教程笔记及代码规范（一） | Leoch's World</title>
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">廖雪粉Python教程笔记及代码规范</h1>
+          <h1 class="post-title" itemprop="name headline">廖雪峰Python教程笔记及代码规范（一）</h1>
         
 
         <div class="post-meta">
@@ -354,7 +354,7 @@
 
           
           
-             <span id="/2018/04/22/0422-171151/" class="leancloud_visitors" data-flag-title="廖雪粉Python教程笔记及代码规范">
+             <span id="/2018/04/22/0422-171151/" class="leancloud_visitors" data-flag-title="廖雪峰Python教程笔记及代码规范（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,12 +385,14 @@
       
 
       
-        <h1 id="廖雪峰python教程笔记"><a href="#廖雪峰python教程笔记" class="headerlink" title="廖雪峰python教程笔记"></a>廖雪峰python教程笔记</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><ul>
+        <h1 id="廖雪峰Python教程笔记及代码规范（一）"><a href="#廖雪峰Python教程笔记及代码规范（一）" class="headerlink" title="廖雪峰Python教程笔记及代码规范（一）"></a>廖雪峰Python教程笔记及代码规范（一）</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li><p>如果有必要，可以先对参数的数据类型做检查；</p>
 </li>
 <li><p>函数体内部可以用return随时返回函数结果；</p>
-<a id="more"></a>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>函数可以同时返回多个值，但其实就是一个tuple</p>
 </li>
 <li><p>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！</p>
@@ -412,7 +414,7 @@
 <li><p>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。</p>
 </li>
 </ul>
-<h2 id="2-高级特性"><a href="#2-高级特性" class="headerlink" title="2 高级特性"></a>2 高级特性</h2><h3 id="2-1-切片"><a href="#2-1-切片" class="headerlink" title="2.1 切片"></a>2.1 切片</h3><ul>
+<h2 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h2><h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><ul>
 <li>注意s[n]与s[n:m]的区别，一个是元素，一个是切片。</li>
 <li><p>技巧</p>
 <ul>
@@ -434,12 +436,12 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> s == <span class="string">''</span>:</span><br><span class="line">    <span class="comment"># 取首位</span></span><br><span class="line">    s[<span class="number">0</span>] <span class="comment"># error: out of index</span></span><br><span class="line">    s[:<span class="number">1</span>] <span class="comment"># correct</span></span><br><span class="line">    <span class="comment"># 取末位</span></span><br><span class="line">    s[<span class="number">-1</span>] <span class="comment"># error: out of index</span></span><br><span class="line">    s[<span class="number">-1</span>:] <span class="comment"># correct</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-2-迭代"><a href="#2-2-迭代" class="headerlink" title="2.2 迭代"></a>2.2 迭代</h3><ul>
+<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><ul>
 <li>默认情况下，dict迭代的是key。如果要迭代value，可以用<code>for value in d.values()</code>，如果要同时迭代key和value，可以用<code>for k, v in d.items()</code>。</li>
 </ul>
-<h3 id="2-3-列表生成器"><a href="#2-3-列表生成器" class="headerlink" title="2.3 列表生成器"></a>2.3 列表生成器</h3><p>把一个list（包含各种数据类型）中所有的字符串变成小写：</p>
+<h3 id="列表生成器"><a href="#列表生成器" class="headerlink" title="列表生成器"></a>列表生成器</h3><p>把一个list（包含各种数据类型）中所有的字符串变成小写：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">L1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="number">18</span>, <span class="string">'Apple'</span>, <span class="keyword">None</span>]</span><br><span class="line">L2 = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> L1 <span class="keyword">if</span> isinstance(s,str)]</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-生成器（generator）"><a href="#2-4-生成器（generator）" class="headerlink" title="2.4 生成器（generator）"></a>2.4 生成器（generator）</h3><p>要创建一个generator，有很多种方法。</p>
+<h3 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h3><p>要创建一个generator，有很多种方法。</p>
 <ul>
 <li><p>第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator</p>
 <ul>
@@ -453,7 +455,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-5-迭代器"><a href="#2-5-迭代器" class="headerlink" title="2.5 迭代器"></a>2.5 迭代器</h3><ul>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ul>
 <li><p>凡是可作用于for循环的对象都是Iterable类型；</p>
 </li>
 <li><p>凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；</p>
@@ -544,7 +546,7 @@
 <p>关于函数的几个方面应该在特定的小节中进行描述记录， 这几个方面如下文所述. 每节应该以一个标题行开始. 标题行以冒号结尾. 除标题行外, 节的其他内容应被缩进2个空格.</p>
 <ul>
 <li><p>Args:</p>
-<p>列出每个参数的名字, 并在名字后使用一个冒号和一个空格, 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致). 描述应该包括所需的类型和含义. 如果一个函数接受<em>foo(可变长度参数列表)或者**bar (任意关键字参数), 应该详细列出</em>foo和**bar.</p>
+<p>列出每个参数的名字, 并在名字后使用一个冒号和一个空格, 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致). 描述应该包括所需的类型和含义. 如果一个函数接受*foo(可变长度参数列表)或者**bar (任意关键字参数), 应该详细列出*foo和**bar.</p>
 </li>
 <li><p>Returns: (或者 Yields: 用于生成器)</p>
 <p>描述返回值的类型和语义. 如果函数返回None, 这一部分可以省略.</p>
@@ -595,7 +597,6 @@
 <tr>
 <td>Packages</td>
 <td>lower_with_under</td>
-<td></td>
 </tr>
 <tr>
 <td>Classes</td>
@@ -647,7 +648,85 @@
 <li>练习  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, __name, __gender, *args, **kwargs)</span>:</span></span><br><span class="line">    self.__name = __name</span><br><span class="line">    self.__gender = __gender</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_gender</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (self.__gender)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_gender</span><span class="params">(self,gender)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> gender <span class="keyword">in</span> [<span class="string">'Male'</span>, <span class="string">'male'</span>, <span class="string">'M'</span>, <span class="string">'F'</span>, <span class="string">'Female'</span>, <span class="string">'female'</span>]:</span><br><span class="line">        self.__gender = gender</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Error"</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-
+<h3 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h3><ul>
+<li><p>继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写。</p>
+</li>
+<li><p>对于静态语言（例如Java）来说，如果需要传入Animal类型，则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法。对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个run()方法就可以了。这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
+</li>
+</ul>
+<h3 id="获取对象的信息"><a href="#获取对象的信息" class="headerlink" title="获取对象的信息"></a>获取对象的信息</h3><ul>
+<li><p>使用type()</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;type(<span class="number">123</span>)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>isinstance()</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isinstance(变量，类型)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dir()</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;dir(<span class="string">'ABC'</span>)</span><br><span class="line">[<span class="string">'__add__'</span>, <span class="string">'__class__'</span>,..., <span class="string">'__subclasshook__'</span>, <span class="string">'capitalize'</span>, <span class="string">'casefold'</span>,..., <span class="string">'zfill'</span>]</span><br><span class="line"><span class="comment">#列出一个类型的所有属性</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getattr()、setattr()、hasattr()</p>
+<p>  判断类型中是否有某个参数，获取和设置</p>
+</li>
+</ul>
+<h3 id="实例属性和类属性"><a href="#实例属性和类属性" class="headerlink" title="实例属性和类属性"></a>实例属性和类属性</h3><ul>
+<li><p>实例属性属于各个实例所有，互不干扰；</p>
+</li>
+<li><p>类属性属于类所有，所有实例共享一个属性；</p>
+</li>
+<li><p>不要对实例属性和类属性使用相同的名字，否则将产生难以发现的错误。</p>
+</li>
+<li><p>练习</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为了统计学生人数，可以给Student类增加一个类属性，每创建一个实例，该属性自动增加</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        notes:</span></span><br><span class="line"><span class="string">        # init方法是绑定实例的属性用的，不能调用类属性count</span></span><br><span class="line"><span class="string">        # 每次实例化对象的时候，只需init来为其绑定属性，不会执行类属性部分，即从类属性之后的部分开始运行的</span></span><br><span class="line"><span class="string">        # 写"self.count = self.count + 1"实质上是绑定了一个新的实例属性count,已经与类中原先声明的变量“count”不是同一个了.等号右边的self.count指向的是Student.count,左边的指向新的实例属性self.count,无论创建多少个实例，实例属性count都为1</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="comment">#self.count += 1</span></span><br><span class="line">        Student.count += <span class="number">1</span></span><br><span class="line">        <span class="comment">#count += 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试:</span></span><br><span class="line"><span class="keyword">if</span> Student.count != <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    bart = Student(<span class="string">'Bart'</span>)</span><br><span class="line">    <span class="keyword">if</span> Student.count != <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">'测试失败!'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        lisa = Student(<span class="string">'Bart'</span>)</span><br><span class="line">        <span class="keyword">if</span> Student.count != <span class="number">2</span>:</span><br><span class="line">            print(<span class="string">'测试失败!'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'Students:'</span>, Student.count)</span><br><span class="line">            print(<span class="string">'测试通过!'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h2><h3 id="slot-属性"><a href="#slot-属性" class="headerlink" title="slot()属性"></a><strong>slot</strong>()属性</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line"><span class="meta">... </span>    __slots__ = (<span class="string">'a'</span>,<span class="string">'b'</span>)</span><br><span class="line"><span class="meta">... </span>    c = <span class="number">5</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"><span class="meta">... </span>            <span class="keyword">pass</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aa = test()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aa.a = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aa.b = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test.a = <span class="number">5</span></span><br><span class="line"> aa.a  <span class="comment">#此时该值变成5，因为aa.a的实例属性已被删除，且'a'从slots运行名单中删除</span></span><br><span class="line"> aa.a =<span class="number">3</span>  <span class="comment">#此时会报错，'a'已被限制，此时只能访问b</span></span><br><span class="line"> <span class="keyword">del</span> test.a  <span class="comment">#删除 a 类属性</span></span><br><span class="line"> aa.a=<span class="number">4</span>  <span class="comment">#依然报错，虽然slots值包含'a'，但允许名单中已不存在'a'</span></span><br><span class="line"> test.b=<span class="number">7</span></span><br><span class="line"> aa.b = <span class="number">4</span>  <span class="comment">#报错，同理，此时slots的允许名单中的2个名称都被禁用了，所以test对象不能创建任何实例属性了</span></span><br><span class="line"> test.slots=(<span class="string">'q'</span>,<span class="string">'p'</span>)</span><br><span class="line"> bb=test()</span><br><span class="line"> bb.q=<span class="number">3</span>  <span class="comment">#报错，更改slots是不会改变允许名单的</span></span><br><span class="line"> bb.a=<span class="number">3</span>  <span class="comment">#报错，test对象已不能创建任何实例属性了</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用类装饰器-property"><a href="#使用类装饰器-property" class="headerlink" title="使用类装饰器@property"></a>使用类装饰器@property</h3><ul>
+<li><p>在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把成绩随便改</p>
+</li>
+<li><p>可以通过一个set_score()方法来设置成绩，再通过一个get_score()来获取成绩，这样，在set_score()方法里，就可以检查参数, 但是，上面的调用方法又略显复杂，没有直接用属性这么直接简单</p>
+</li>
+<li><p>把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作</p>
+</li>
+<li><p>还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 请利用@property给一个Screen对象加上width和height属性，以及一个只读属性resolution：</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Screen</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">width</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._width</span><br><span class="line"><span class="meta">    @width.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">width</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self._width = value</span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">height</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._height</span><br><span class="line"><span class="meta">    @height.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">height</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self._height = value</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">resolution</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._width * self._height   </span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="comment"># 测试:</span></span><br><span class="line">s = Screen()</span><br><span class="line">s.width = <span class="number">1024</span></span><br><span class="line">s.height = <span class="number">768</span></span><br><span class="line">print(<span class="string">'resolution ='</span>, s.resolution)</span><br><span class="line"><span class="keyword">if</span> s.resolution == <span class="number">786432</span>:</span><br><span class="line">    print(<span class="string">'测试通过!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h3><ul>
+<li><p>通过多重继承(MixIn)，一个子类就可以同时获得多个父类的所有功能</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bat</span><span class="params">(Mammal, Flyable)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系</p>
+</li>
+<li><p>什么是拓扑排序：</p>
+<ul>
+<li>从DAG途中选择一个没有前驱(即入度为0)的顶点并输出</li>
+<li>从图中删除该顶点和所有以它为起点的有向边。</li>
+<li>重复1和2直到当前DAG图为空或当前途中不存在无前驱的顶点为止。后一种情况说明有向图中必然存在环。</li>
+</ul>
+</li>
+<li><p>python多重继承：</p>
+<ul>
+<li>把继承关系先构成一张图</li>
+<li>利用拓扑排序的方法输出拓扑顺序，并列关系时遵循取最左原则</li>
+<li>python继承顺序遵循C3算法，只要在一个地方找到了所需的内容，就不再继续查找</li>
+</ul>
+</li>
+</ul>
+<h3 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h3><ul>
+<li><strong>str</strong>：类自定义打印</li>
+<li><strong>repr</strong>：实例自定义打印</li>
+<li><strong>iter</strong>：如果一个类想被用于for … in循环，类似list或tuple那样，就必须实现一个<strong>iter</strong>()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的<strong>next</strong>()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。</li>
+<li><strong>getitem</strong>：要表现得像list那样按照下标取出元素，需要实现<strong>getitem</strong>()方法</li>
+<li><strong>getattr</strong>：动态返回一个属性，当调用不存在的属性时，比如score，Python解释器会试图调用<strong>getattr</strong>(self, ‘score’)来尝试获得属性，这样，我们就有机会返回score的值。<ul>
+<li>返回函数也是完全可以的，只是调用方式要变为s.age()</li>
+<li>注意，只有在没有找到属性的情况下，才调用<strong>getattr</strong>，已有的属性，比如name，不会在<strong>getattr</strong>中查找</li>
+<li>默认返回None</li>
+</ul>
+</li>
+<li><strong>call</strong>：任何类，只需要定义一个<strong>call</strong>()方法，就可以直接对实例进行调用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 练习</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chain</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path = <span class="string">''</span>)</span>:</span></span><br><span class="line">        print(<span class="string">'__init__'</span> + path)</span><br><span class="line">        self._path = path</span><br><span class="line">        print(self._path)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        print(<span class="string">'__getattr__'</span> + path)</span><br><span class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path,path))</span><br><span class="line">        print(self._path)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        print(<span class="string">'__call__'</span> + path)</span><br><span class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path,path))</span><br><span class="line">        print(self._path)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"my path is"</span> + self._path</span><br><span class="line"></span><br><span class="line">    __repr__ = __str__</span><br><span class="line"></span><br><span class="line">path = Chain().a.b.user(<span class="string">'leoch'</span>).file(<span class="string">'image'</span>)</span><br><span class="line">print(path)</span><br></pre></td></tr></table></figure>
+<h3 id="xx"><a href="#xx" class="headerlink" title="xx"></a>xx</h3>
       
     </div>
     
@@ -663,11 +742,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/04/22/0422-171151/">廖雪粉Python教程笔记及代码规范</a></p>
+  <p><span>本文标题:</span><a href="/2018/04/22/0422-171151/">廖雪峰Python教程笔记及代码规范（一）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Leoch 的个人博客">Leoch</a></p>
   <p><span>发布时间:</span>2018年04月22日 - 17:04</p>
-  <p><span>最后更新:</span>2018年04月22日 - 17:04</p>
-  <p><span>原始链接:</span><a href="/2018/04/22/0422-171151/" title="廖雪粉Python教程笔记及代码规范">http://leoch.xyz/2018/04/22/0422-171151/</a>
+  <p><span>最后更新:</span>2018年05月10日 - 17:05</p>
+  <p><span>原始链接:</span><a href="/2018/04/22/0422-171151/" title="廖雪峰Python教程笔记及代码规范（一）">http://leoch.xyz/2018/04/22/0422-171151/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://leoch.xyz/2018/04/22/0422-171151/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -943,7 +1022,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#廖雪峰python教程笔记"><span class="nav-number">1.</span> <span class="nav-text">廖雪峰python教程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-函数"><span class="nav-number">1.1.</span> <span class="nav-text">1 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-高级特性"><span class="nav-number">1.2.</span> <span class="nav-text">2 高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-切片"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-迭代"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-列表生成器"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 列表生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-生成器（generator）"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 生成器（generator）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-迭代器"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 迭代器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.3.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">高级函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-reduce"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">map/reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sorted"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">sorted()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回函数"><span class="nav-number">1.3.2.</span> <span class="nav-text">返回函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decorator"><span class="nav-number">1.3.3.</span> <span class="nav-text">Decorator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数"><span class="nav-number">1.3.4.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.4.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建模块"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释规范"><span class="nav-number">1.5.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.5.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档字符串"><span class="nav-number">1.5.2.</span> <span class="nav-text">文档字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块注释"><span class="nav-number">1.5.3.</span> <span class="nav-text">模块注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">函数和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的注释"><span class="nav-number">1.5.5.</span> <span class="nav-text">类的注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块注释和行注释"><span class="nav-number">1.5.6.</span> <span class="nav-text">块注释和行注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.6.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和实例"><span class="nav-number">1.6.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">1.6.2.</span> <span class="nav-text">访问限制</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#廖雪峰Python教程笔记及代码规范（一）"><span class="nav-number">1.</span> <span class="nav-text">廖雪峰Python教程笔记及代码规范（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.1.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级特性"><span class="nav-number">1.2.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#切片"><span class="nav-number">1.2.1.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代"><span class="nav-number">1.2.2.</span> <span class="nav-text">迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表生成器"><span class="nav-number">1.2.3.</span> <span class="nav-text">列表生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器（generator）"><span class="nav-number">1.2.4.</span> <span class="nav-text">生成器（generator）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器"><span class="nav-number">1.2.5.</span> <span class="nav-text">迭代器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.3.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">高级函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-reduce"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">map/reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sorted"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">sorted()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回函数"><span class="nav-number">1.3.2.</span> <span class="nav-text">返回函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decorator"><span class="nav-number">1.3.3.</span> <span class="nav-text">Decorator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数"><span class="nav-number">1.3.4.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.4.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建模块"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释规范"><span class="nav-number">1.5.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.5.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档字符串"><span class="nav-number">1.5.2.</span> <span class="nav-text">文档字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块注释"><span class="nav-number">1.5.3.</span> <span class="nav-text">模块注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">函数和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的注释"><span class="nav-number">1.5.5.</span> <span class="nav-text">类的注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块注释和行注释"><span class="nav-number">1.5.6.</span> <span class="nav-text">块注释和行注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.6.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和实例"><span class="nav-number">1.6.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">1.6.2.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承和多态"><span class="nav-number">1.6.3.</span> <span class="nav-text">继承和多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象的信息"><span class="nav-number">1.6.4.</span> <span class="nav-text">获取对象的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性和类属性"><span class="nav-number">1.6.5.</span> <span class="nav-text">实例属性和类属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象高级编程"><span class="nav-number">1.7.</span> <span class="nav-text">面向对象高级编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#slot-属性"><span class="nav-number">1.7.1.</span> <span class="nav-text">slot()属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用类装饰器-property"><span class="nav-number">1.7.2.</span> <span class="nav-text">使用类装饰器@property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重继承"><span class="nav-number">1.7.3.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制类"><span class="nav-number">1.7.4.</span> <span class="nav-text">定制类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xx"><span class="nav-number">1.7.5.</span> <span class="nav-text">xx</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
