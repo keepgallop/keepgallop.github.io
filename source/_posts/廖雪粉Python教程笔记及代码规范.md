@@ -1,5 +1,5 @@
 ---
-title: 廖雪粉Python教程笔记及代码规范
+title: 廖雪峰Python教程笔记及代码规范（一）
 date: 2018-04-22 17:11:51
 id: 0422-171151
 tags: 
@@ -11,13 +11,14 @@ categories:
 copyright: true
 ---
 
-# 廖雪峰python教程笔记
+# 廖雪峰Python教程笔记及代码规范（一）
 
-## 1 函数
+## 函数
 
 - 如果有必要，可以先对参数的数据类型做检查；
 
 - 函数体内部可以用return随时返回函数结果；
+
 <!--more-->
 
 - 函数可以同时返回多个值，但其实就是一个tuple
@@ -39,9 +40,9 @@ copyright: true
 
 - 定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。
 
-## 2 高级特性
+## 高级特性
 
-### 2.1 切片
+### 切片
 
 - 注意s[n]与s[n:m]的区别，一个是元素，一个是切片。
 - 技巧
@@ -77,11 +78,11 @@ if s == '':
     s[-1:] # correct
 ```
 
-### 2.2 迭代
+### 迭代
 
 - 默认情况下，dict迭代的是key。如果要迭代value，可以用`for value in d.values()`，如果要同时迭代key和value，可以用`for k, v in d.items()`。
 
-### 2.3 列表生成器
+### 列表生成器
 
 把一个list（包含各种数据类型）中所有的字符串变成小写：
 
@@ -91,7 +92,7 @@ L1 = ['Hello', 'World', 18, 'Apple', None]
 L2 = [s.lower() for s in L1 if isinstance(s,str)]
 ```
 
-### 2.4 生成器（generator）
+### 生成器（generator）
 
 要创建一个generator，有很多种方法。
 
@@ -102,7 +103,7 @@ L2 = [s.lower() for s in L1 if isinstance(s,str)]
 - 另一种方法。如果一个函数定义中包含`yield`关键字，那么这个函数就不再是一个普通函数，而是一个generator
   - 但是用for循环调用generator时，发现拿不到generator的return语句的返回值。如果想要拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的valuez中
 
-### 2.5 迭代器
+### 迭代器
 
 - 凡是可作用于for循环的对象都是Iterable类型；
 
@@ -398,7 +399,7 @@ if __name__=='__main__':
 
 - Args:
 
-  列出每个参数的名字, 并在名字后使用一个冒号和一个空格, 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致). 描述应该包括所需的类型和含义. 如果一个函数接受*foo(可变长度参数列表)或者**bar (任意关键字参数), 应该详细列出*foo和**bar.
+  列出每个参数的名字, 并在名字后使用一个冒号和一个空格, 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致). 描述应该包括所需的类型和含义. 如果一个函数接受\*foo(可变长度参数列表)或者\*\*bar (任意关键字参数), 应该详细列出\*foo和\*\*bar.
 
 - Returns: (或者 Yields: 用于生成器)
 
@@ -558,3 +559,213 @@ Local Variables | lower_with_under
         else:
             print("Error")
     ```
+
+### 继承和多态
+
+- 继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写。
+
+- 对于静态语言（例如Java）来说，如果需要传入Animal类型，则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法。对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个run()方法就可以了。这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。
+
+### 获取对象的信息
+
+- 使用type()
+
+    ```python
+    >>>type(123)
+    <class 'int'>
+    ```
+
+- isinstance()
+
+    ```python
+    isinstance(变量，类型)
+    ```
+
+- dir()
+
+    ```python
+    >>>dir('ABC')
+    ['__add__', '__class__',..., '__subclasshook__', 'capitalize', 'casefold',..., 'zfill']
+    #列出一个类型的所有属性
+    ```
+
+- getattr()、setattr()、hasattr()
+
+    判断类型中是否有某个参数，获取和设置
+
+### 实例属性和类属性
+
+- 实例属性属于各个实例所有，互不干扰；
+
+- 类属性属于类所有，所有实例共享一个属性；
+
+- 不要对实例属性和类属性使用相同的名字，否则将产生难以发现的错误。
+
+- 练习
+
+```python
+# 为了统计学生人数，可以给Student类增加一个类属性，每创建一个实例，该属性自动增加
+# -*- coding: utf-8 -*-
+class Student(object):
+    count = 0
+
+    def __init__(self, name):
+        self.name = name
+        '''
+        notes:
+        # init方法是绑定实例的属性用的，不能调用类属性count
+        # 每次实例化对象的时候，只需init来为其绑定属性，不会执行类属性部分，即从类属性之后的部分开始运行的
+        # 写"self.count = self.count + 1"实质上是绑定了一个新的实例属性count,已经与类中原先声明的变量“count”不是同一个了.等号右边的self.count指向的是Student.count,左边的指向新的实例属性self.count,无论创建多少个实例，实例属性count都为1
+        '''
+        #self.count += 1
+        Student.count += 1
+        #count += 1
+
+# 测试:
+if Student.count != 0:
+    print('测试失败!')
+else:
+    bart = Student('Bart')
+    if Student.count != 1:
+        print('测试失败!')
+    else:
+        lisa = Student('Bart')
+        if Student.count != 2:
+            print('测试失败!')
+        else:
+            print('Students:', Student.count)
+            print('测试通过!')
+```
+
+## 面向对象高级编程
+
+### __slot__()属性
+
+```python
+>>> class test():
+...     __slots__ = ('a','b')
+...     c = 5
+...     def __init__(self):
+...             pass
+...
+>>> aa = test()
+>>> aa.a = 3
+>>> aa.b = 4
+>>> test.a = 5
+ aa.a  #此时该值变成5，因为aa.a的实例属性已被删除，且'a'从slots运行名单中删除
+ aa.a =3  #此时会报错，'a'已被限制，此时只能访问b
+ del test.a  #删除 a 类属性
+ aa.a=4  #依然报错，虽然slots值包含'a'，但允许名单中已不存在'a'
+ test.b=7
+ aa.b = 4  #报错，同理，此时slots的允许名单中的2个名称都被禁用了，所以test对象不能创建任何实例属性了
+ test.slots=('q','p')
+ bb=test()
+ bb.q=3  #报错，更改slots是不会改变允许名单的
+ bb.a=3  #报错，test对象已不能创建任何实例属性了
+```
+
+### 使用类装饰器@property
+
+- 在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把成绩随便改
+
+- 可以通过一个set_score()方法来设置成绩，再通过一个get_score()来获取成绩，这样，在set_score()方法里，就可以检查参数, 但是，上面的调用方法又略显复杂，没有直接用属性这么直接简单
+
+- 把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作
+
+- 还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性
+
+```python
+# 请利用@property给一个Screen对象加上width和height属性，以及一个只读属性resolution：
+# -*- coding: utf-8 -*-
+class Screen(object):
+    @property
+    def width(self):
+        return self._width
+    @width.setter
+    def width(self,value):
+        self._width = value
+    @property
+    def height(self):
+        return self._height
+    @height.setter
+    def height(self,value):
+        self._height = value
+
+    @property
+    def resolution(self):
+        return self._width * self._height   
+    pass
+# 测试:
+s = Screen()
+s.width = 1024
+s.height = 768
+print('resolution =', s.resolution)
+if s.resolution == 786432:
+    print('测试通过!')
+else:
+    print('测试失败!')
+```
+
+### 多重继承
+
+- 通过多重继承(MixIn)，一个子类就可以同时获得多个父类的所有功能
+
+    ```python
+    class Bat(Mammal, Flyable):
+        pass
+    ```
+
+- MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系
+
+- 什么是拓扑排序：
+
+  - 从DAG途中选择一个没有前驱(即入度为0)的顶点并输出
+  - 从图中删除该顶点和所有以它为起点的有向边。
+  - 重复1和2直到当前DAG图为空或当前途中不存在无前驱的顶点为止。后一种情况说明有向图中必然存在环。
+
+- python多重继承：
+
+  - 把继承关系先构成一张图
+  - 利用拓扑排序的方法输出拓扑顺序，并列关系时遵循取最左原则
+  - python继承顺序遵循C3算法，只要在一个地方找到了所需的内容，就不再继续查找
+
+### 定制类
+
+- __str__：类自定义打印
+- __repr__：实例自定义打印
+- __iter__：如果一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
+- __getitem__：要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
+- __getattr__：动态返回一个属性，当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, 'score')来尝试获得属性，这样，我们就有机会返回score的值。
+  - 返回函数也是完全可以的，只是调用方式要变为s.age()
+  - 注意，只有在没有找到属性的情况下，才调用__getattr__，已有的属性，比如name，不会在__getattr__中查找
+  - 默认返回None
+- __call__：任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用
+
+```python
+# 练习
+class Chain(object):
+
+    def __init__(self, path = ''):
+        print('__init__' + path)
+        self._path = path
+        print(self._path)
+
+    def __getattr__(self, path):
+        print('__getattr__' + path)
+        return Chain('%s/%s' % (self._path,path))
+        print(self._path)
+
+    def __call__(self, path):
+        print('__call__' + path)
+        return Chain('%s/%s' % (self._path,path))
+        print(self._path)
+
+    def __str__(self):
+        return "my path is" + self._path
+
+    __repr__ = __str__
+
+path = Chain().a.b.user('leoch').file('image')
+print(path)
+```
+
