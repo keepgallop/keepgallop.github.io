@@ -387,58 +387,16 @@
 
       
         
-          
-            <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级"><a href="#利用深度学习做基于眼底图片的青光眼诊断和分级" class="headerlink" title="利用深度学习做基于眼底图片的青光眼诊断和分级"></a>利用深度学习做基于眼底图片的青光眼诊断和分级</h1><p><img src="/2018/05/10/20180510180759/计算机视觉.jpg" alt="img1"></p>
-<h2 id="为什么做这个题"><a href="#为什么做这个题" class="headerlink" title="为什么做这个题"></a>为什么做这个题</h2><h3 id="眼底图片还能搞一搞"><a href="#眼底图片还能搞一搞" class="headerlink" title="眼底图片还能搞一搞"></a>眼底图片还能搞一搞</h3><p>智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle上也曾举办<a href="https://www.kaggle.com/c/diabetic-retinopathy-detection" target="_blank" rel="noopener">“DR自动筛查”</a>的比赛。</p>
-<p>笔者之前已经陆陆续续用眼底图片做了大量的实验，包括左右眼、DR、risk factor等的分类，但是都没留下什么文档记录。</p>
-<p>五一期间去夏威夷的ARVO大会逛了一圈，发现这块还是能搞一搞，水个paper啥的。于是想好好设计一个项目，记录所有的思考过程和实验步骤，并最终输出一篇paper，同时把代码和文档开源到博客。</p>
-<p><img src="/2018/05/10/20180510180759/ARVO.png" alt="img2"></p>
-<h3 id="青光眼自动诊断的研究现状"><a href="#青光眼自动诊断的研究现状" class="headerlink" title="青光眼自动诊断的研究现状"></a>青光眼自动诊断的研究现状</h3><p>相比于DR和AMD，GON自动诊断发展相对较慢。主要原因是样本量不足，同时大量的研究趋向于用局部特征提取（血管分割、视盘/视杯分割）而非全局特征来诊断。</p>
-<p>最近我们团队在<em>ophthalmology</em>上publish了一篇<a href="https://www.ncbi.nlm.nih.gov/pubmed/29506863" target="_blank" rel="noopener"><em>Efficacy of a Deep Learning System for Detecting Glaucomatous Optic Neuropathy Based on Color Fundus Photographs</em></a>，算是在样本量和模型性能上较以往研究有较大的提升。</p>
-<p>该文章同时也遗留了一些问题，提出了一些future work。另外我们的样本集又有所更新。基于此，我设计了本项目。</p>
-<h2 id="实验设计思路"><a href="#实验设计思路" class="headerlink" title="实验设计思路"></a>实验设计思路</h2><h3 id="可行性分析"><a href="#可行性分析" class="headerlink" title="可行性分析"></a>可行性分析</h3><p>利用<a href="http://ghomevip.com/show.asp?id=105" target="_blank" rel="noopener">眼底图片人工诊断青光眼</a>是临床非常常用的方法。主要是检测杯盘比。这说明了眼底图片包含了可用于诊断的特征，所以用深度学习去做自动化是可行的，之前的大量研究也提供了佐证。</p>
-<p><img src="/2018/05/10/20180510180759/青光眼杯盘比.jpeg" alt="img3"></p>
-<h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>容量/版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Nvidia</td>
-<td>3</td>
-</tr>
-<tr>
-<td>Keras</td>
-<td></td>
-</tr>
-<tr>
-<td>Jupyter</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>本实验主要解决以下问题：</p>
-<ol>
-<li>多种常见模型在眼底图片自动诊断青光眼上的表现差异</li>
-<li>多种模型诊断过程的可视化比较</li>
-<li>模型融合</li>
-</ol>
-<h3 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h3><ol>
-<li>从服务器按文件名取数 -&gt; label匹配</li>
-<li>数据清理，剔除异常值 -&gt; 预处理</li>
-<li>数据分集 -&gt; 保存本地</li>
-<li>编写多fine-tune模型，编写训练函数 -&gt; 训练</li>
-<li>结果分析 -&gt; 可视化</li>
-<li>模型融合</li>
-<li>结果比较，分析</li>
-<li>写paper</li>
-</ol>
-<h2 id="实验步骤、代码、笔记"><a href="#实验步骤、代码、笔记" class="headerlink" title="实验步骤、代码、笔记"></a>实验步骤、代码、笔记</h2>
-          
+          <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级"><a href="#利用深度学习做基于眼底图片的青光眼诊断和分级" class="headerlink" title="利用深度学习做基于眼底图片的青光眼诊断和分级"></a>利用深度学习做基于眼底图片的青光眼诊断和分级</h1><blockquote>
+<p>使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。<br>本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/10/20180510180759/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -602,12 +560,9 @@
 
       
         
-          <h1 id="廖雪峰Python教程笔记及代码规范（一）"><a href="#廖雪峰Python教程笔记及代码规范（一）" class="headerlink" title="廖雪峰Python教程笔记及代码规范（一）"></a>廖雪峰Python教程笔记及代码规范（一）</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
-<li><p>如果有必要，可以先对参数的数据类型做检查；</p>
-</li>
-<li><p>函数体内部可以用return随时返回函数结果；</p>
-</li>
-</ul>
+          <h1 id="廖雪峰Python教程笔记及代码规范（一）"><a href="#廖雪峰Python教程笔记及代码规范（一）" class="headerlink" title="廖雪峰Python教程笔记及代码规范（一）"></a>廖雪峰Python教程笔记及代码规范（一）</h1><blockquote>
+<p>学习廖雪峰python教程后的笔记，以及部分课后习题代码</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/22/0422-171151/#more" rel="contents">
@@ -838,7 +793,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/">
+    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leoch">
@@ -857,179 +812,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T12:05:18+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Hot&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 ℃<span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Hey there!</p>
-<p>This is the WELCOME article in my blog, used to test the Markdown performance.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/04/cjh0qt8ys0002wv3q9cjabhv1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leoch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leoch's World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/" itemprop="url">Vultr + shadowsocks 搭建科学上网代理服务器</a></h1>
+                <a class="post-title-link" href="/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/" itemprop="url">Vultr + shadowsocks 搭建科学上网代理服务器</a></h1>
         
 
         <div class="post-meta">
@@ -1082,8 +865,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/" itemprop="commentCount"></span>
+                <a href="/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1091,7 +874,7 @@
 
           
           
-             <span id="/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/" class="leancloud_visitors" data-flag-title="Vultr + shadowsocks 搭建科学上网代理服务器">
+             <span id="/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/" class="leancloud_visitors" data-flag-title="Vultr + shadowsocks 搭建科学上网代理服务器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1127,7 +910,7 @@
 <p>搭建一台科学上网server，提起里很麻烦，其实不然，跟着教程，准备一点money（毕竟免费无好货），terminal下一阵操作复制粘贴，就大功告成。具体为以下几步：<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/29/cjh0qt8yz0006wv3qv6f0k0e2/#more" rel="contents">
+            <a class="btn" href="/2018/03/29/cjh1ar4n30002nv9k05xkl4k5/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1219,7 +1002,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 为什么做这个题眼底图片还能搞一搞智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle">
+<meta name="description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
 <meta name="keywords" content="深度学习,Keras,眼底图片,青光眼,模型融合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用深度学习做基于眼底图片的青光眼诊断和分级">
 <meta property="og:url" content="http://leoch.xyz/2018/05/10/20180510180759/index.html">
 <meta property="og:site_name" content="Leoch&#39;s World">
-<meta property="og:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 为什么做这个题眼底图片还能搞一搞智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle">
+<meta property="og:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/计算机视觉.jpg">
 <meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/ARVO.png">
 <meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/青光眼杯盘比.jpeg">
-<meta property="og:updated_time" content="2018-05-10T17:02:36.046Z">
+<meta property="og:updated_time" content="2018-05-11T02:29:04.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用深度学习做基于眼底图片的青光眼诊断和分级">
-<meta name="twitter:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 为什么做这个题眼底图片还能搞一搞智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle">
+<meta name="twitter:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
 <meta name="twitter:image" content="http://leoch.xyz/2018/05/10/20180510180759/计算机视觉.jpg">
 
 
@@ -389,7 +389,11 @@
       
 
       
-        <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级"><a href="#利用深度学习做基于眼底图片的青光眼诊断和分级" class="headerlink" title="利用深度学习做基于眼底图片的青光眼诊断和分级"></a>利用深度学习做基于眼底图片的青光眼诊断和分级</h1><p><img src="/2018/05/10/20180510180759/计算机视觉.jpg" alt="img1"></p>
+        <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级"><a href="#利用深度学习做基于眼底图片的青光眼诊断和分级" class="headerlink" title="利用深度学习做基于眼底图片的青光眼诊断和分级"></a>利用深度学习做基于眼底图片的青光眼诊断和分级</h1><blockquote>
+<p>使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。<br>本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/2018/05/10/20180510180759/计算机视觉.jpg" alt="img1"></p>
 <h2 id="为什么做这个题"><a href="#为什么做这个题" class="headerlink" title="为什么做这个题"></a>为什么做这个题</h2><h3 id="眼底图片还能搞一搞"><a href="#眼底图片还能搞一搞" class="headerlink" title="眼底图片还能搞一搞"></a>眼底图片还能搞一搞</h3><p>智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle上也曾举办<a href="https://www.kaggle.com/c/diabetic-retinopathy-detection" target="_blank" rel="noopener">“DR自动筛查”</a>的比赛。</p>
 <p>笔者之前已经陆陆续续用眼底图片做了大量的实验，包括左右眼、DR、risk factor等的分类，但是都没留下什么文档记录。</p>
 <p>五一期间去夏威夷的ARVO大会逛了一圈，发现这块还是能搞一搞，水个paper啥的。于是想好好设计一个项目，记录所有的思考过程和实验步骤，并最终输出一篇paper，同时把代码和文档开源到博客。</p>
@@ -457,7 +461,7 @@
   <p><span>本文标题:</span><a href="/2018/05/10/20180510180759/">利用深度学习做基于眼底图片的青光眼诊断和分级</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Leoch 的个人博客">Leoch</a></p>
   <p><span>发布时间:</span>2018年05月10日 - 18:05</p>
-  <p><span>最后更新:</span>2018年05月11日 - 01:05</p>
+  <p><span>最后更新:</span>2018年05月11日 - 10:05</p>
   <p><span>原始链接:</span><a href="/2018/05/10/20180510180759/" title="利用深度学习做基于眼底图片的青光眼诊断和分级">http://leoch.xyz/2018/05/10/20180510180759/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://leoch.xyz/2018/05/10/20180510180759/"  aria-label="复制成功！"></i></span>
   </p>
@@ -660,7 +664,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
