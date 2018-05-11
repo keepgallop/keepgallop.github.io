@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
+<meta name="description" content="利用深度学习做基于眼底图片的青光眼诊断和分级  使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。 本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
 <meta name="keywords" content="深度学习,Keras,眼底图片,青光眼,模型融合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用深度学习做基于眼底图片的青光眼诊断和分级">
 <meta property="og:url" content="http://leoch.xyz/2018/05/10/20180510180759/index.html">
 <meta property="og:site_name" content="Leoch&#39;s World">
-<meta property="og:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
+<meta property="og:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级  使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。 本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/计算机视觉.jpg">
-<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/ARVO.png">
-<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/青光眼杯盘比.jpeg">
+<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/利用深度学习做基于眼底图片的青光眼诊断和分级/计算机视觉.jpg">
+<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/利用深度学习做基于眼底图片的青光眼诊断和分级/ARVO.png">
+<meta property="og:image" content="http://leoch.xyz/2018/05/10/20180510180759/利用深度学习做基于眼底图片的青光眼诊断和分级/青光眼杯盘比.jpeg">
 <meta property="og:updated_time" content="2018-05-11T02:29:04.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用深度学习做基于眼底图片的青光眼诊断和分级">
-<meta name="twitter:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级 使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
-<meta name="twitter:image" content="http://leoch.xyz/2018/05/10/20180510180759/计算机视觉.jpg">
+<meta name="twitter:description" content="利用深度学习做基于眼底图片的青光眼诊断和分级  使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。 本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。">
+<meta name="twitter:image" content="http://leoch.xyz/2018/05/10/20180510180759/利用深度学习做基于眼底图片的青光眼诊断和分级/计算机视觉.jpg">
 
 
 
@@ -389,50 +389,64 @@
       
 
       
-        <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级"><a href="#利用深度学习做基于眼底图片的青光眼诊断和分级" class="headerlink" title="利用深度学习做基于眼底图片的青光眼诊断和分级"></a>利用深度学习做基于眼底图片的青光眼诊断和分级</h1><blockquote>
-<p>使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。<br>本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。</p>
+        <h1 id="利用深度学习做基于眼底图片的青光眼诊断和分级">利用深度学习做基于眼底图片的青光眼诊断和分级</h1>
+<blockquote>
+<p>使用多种常见深度学习模型，在眼底图片上训练诊断和分级青光眼，包括确诊青光眼（Certain Glaucoma）、疑似青光眼（Subject Glaucoma）和非青光眼（Unlikely），并用可视化观察各个网络的区别。然后使用模型融合技术构造新的融合模型。 本文记录该实验全部设计思路、过程数据、结果分析、学习心得和经验总结。</p>
 </blockquote>
 <a id="more"></a>
-<p><img src="/2018/05/10/20180510180759/计算机视觉.jpg" alt="img1"></p>
-<h2 id="为什么做这个题"><a href="#为什么做这个题" class="headerlink" title="为什么做这个题"></a>为什么做这个题</h2><h3 id="眼底图片还能搞一搞"><a href="#眼底图片还能搞一搞" class="headerlink" title="眼底图片还能搞一搞"></a>眼底图片还能搞一搞</h3><p>智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle上也曾举办<a href="https://www.kaggle.com/c/diabetic-retinopathy-detection" target="_blank" rel="noopener">“DR自动筛查”</a>的比赛。</p>
+<figure>
+<img src="./利用深度学习做基于眼底图片的青光眼诊断和分级/计算机视觉.jpg" alt="img1"><figcaption>img1</figcaption>
+</figure>
+<h2 id="为什么做这个题">为什么做这个题</h2>
+<h3 id="眼底图片还能搞一搞">眼底图片还能搞一搞</h3>
+<p>智能医疗是这两年国家重点推的方向，在眼科领域，通过影像学资料（眼底图片、OCT等）自动化诊断是一大热门课题，而深度学习的爆红极大促进了该领域发展。目前，运用深度学习做基于眼底图片的眼病（青光眼（GON）、白内障、糖网（DR）、老年黄斑变性（AMD）等）诊断吸引了医学、生物信息、计算机等各领域研究者的目光。Kaggle上也曾举办<a href="https://www.kaggle.com/c/diabetic-retinopathy-detection" target="_blank" rel="noopener">“DR自动筛查”</a>的比赛。</p>
 <p>笔者之前已经陆陆续续用眼底图片做了大量的实验，包括左右眼、DR、risk factor等的分类，但是都没留下什么文档记录。</p>
 <p>五一期间去夏威夷的ARVO大会逛了一圈，发现这块还是能搞一搞，水个paper啥的。于是想好好设计一个项目，记录所有的思考过程和实验步骤，并最终输出一篇paper，同时把代码和文档开源到博客。</p>
-<p><img src="/2018/05/10/20180510180759/ARVO.png" alt="img2"></p>
-<h3 id="青光眼自动诊断的研究现状"><a href="#青光眼自动诊断的研究现状" class="headerlink" title="青光眼自动诊断的研究现状"></a>青光眼自动诊断的研究现状</h3><p>相比于DR和AMD，GON自动诊断发展相对较慢。主要原因是样本量不足，同时大量的研究趋向于用局部特征提取（血管分割、视盘/视杯分割）而非全局特征来诊断。</p>
+<figure>
+<img src="./利用深度学习做基于眼底图片的青光眼诊断和分级/ARVO.png" alt="img2"><figcaption>img2</figcaption>
+</figure>
+<h3 id="青光眼自动诊断的研究现状">青光眼自动诊断的研究现状</h3>
+<p>相比于DR和AMD，GON自动诊断发展相对较慢。主要原因是样本量不足，同时大量的研究趋向于用局部特征提取（血管分割、视盘/视杯分割）而非全局特征来诊断。</p>
 <p>最近我们团队在<em>ophthalmology</em>上publish了一篇<a href="https://www.ncbi.nlm.nih.gov/pubmed/29506863" target="_blank" rel="noopener"><em>Efficacy of a Deep Learning System for Detecting Glaucomatous Optic Neuropathy Based on Color Fundus Photographs</em></a>，算是在样本量和模型性能上较以往研究有较大的提升。</p>
 <p>该文章同时也遗留了一些问题，提出了一些future work。另外我们的样本集又有所更新。基于此，我设计了本项目。</p>
-<h2 id="实验设计思路"><a href="#实验设计思路" class="headerlink" title="实验设计思路"></a>实验设计思路</h2><h3 id="可行性分析"><a href="#可行性分析" class="headerlink" title="可行性分析"></a>可行性分析</h3><p>利用<a href="http://ghomevip.com/show.asp?id=105" target="_blank" rel="noopener">眼底图片人工诊断青光眼</a>是临床非常常用的方法。主要是检测杯盘比。这说明了眼底图片包含了可用于诊断的特征，所以用深度学习去做自动化是可行的，之前的大量研究也提供了佐证。</p>
-<p><img src="/2018/05/10/20180510180759/青光眼杯盘比.jpeg" alt="img3"></p>
-<h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><div class="table-container">
+<h2 id="实验设计思路">实验设计思路</h2>
+<h3 id="可行性分析">可行性分析</h3>
+<p>利用<a href="http://ghomevip.com/show.asp?id=105" target="_blank" rel="noopener">眼底图片人工诊断青光眼</a>是临床非常常用的方法。主要是检测杯盘比。这说明了眼底图片包含了可用于诊断的特征，所以用深度学习去做自动化是可行的，之前的大量研究也提供了佐证。</p>
+<figure>
+<img src="./利用深度学习做基于眼底图片的青光眼诊断和分级/青光眼杯盘比.jpeg" alt="img3"><figcaption>img3</figcaption>
+</figure>
+<h3 id="实验环境">实验环境</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>名称</th>
 <th>容量/版本</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Nvidia</td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Keras</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Jupyter</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>本实验主要解决以下问题：</p>
-<ol>
+<h3 id="实验目的">实验目的</h3>
+<p>本实验主要解决以下问题：</p>
+<ol type="1">
 <li>多种常见模型在眼底图片自动诊断青光眼上的表现差异</li>
 <li>多种模型诊断过程的可视化比较</li>
 <li>模型融合</li>
 </ol>
-<h3 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h3><ol>
+<h3 id="实验流程">实验流程</h3>
+<ol type="1">
 <li>从服务器按文件名取数 -&gt; label匹配</li>
 <li>数据清理，剔除异常值 -&gt; 预处理</li>
 <li>数据分集 -&gt; 保存本地</li>
@@ -442,7 +456,8 @@
 <li>结果比较，分析</li>
 <li>写paper</li>
 </ol>
-<h2 id="实验步骤、代码、笔记"><a href="#实验步骤、代码、笔记" class="headerlink" title="实验步骤、代码、笔记"></a>实验步骤、代码、笔记</h2>
+<h2 id="实验步骤代码笔记">实验步骤、代码、笔记</h2>
+
       
     </div>
     
@@ -554,6 +569,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/05/11/20180511104600/" rel="prev" title="随便写写">
+                随便写写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -664,7 +683,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -742,7 +761,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#利用深度学习做基于眼底图片的青光眼诊断和分级"><span class="nav-number">1.</span> <span class="nav-text">利用深度学习做基于眼底图片的青光眼诊断和分级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么做这个题"><span class="nav-number">1.1.</span> <span class="nav-text">为什么做这个题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#眼底图片还能搞一搞"><span class="nav-number">1.1.1.</span> <span class="nav-text">眼底图片还能搞一搞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#青光眼自动诊断的研究现状"><span class="nav-number">1.1.2.</span> <span class="nav-text">青光眼自动诊断的研究现状</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验设计思路"><span class="nav-number">1.2.</span> <span class="nav-text">实验设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可行性分析"><span class="nav-number">1.2.1.</span> <span class="nav-text">可行性分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境"><span class="nav-number">1.2.2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验目的"><span class="nav-number">1.2.3.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验流程"><span class="nav-number">1.2.4.</span> <span class="nav-text">实验流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验步骤、代码、笔记"><span class="nav-number">1.3.</span> <span class="nav-text">实验步骤、代码、笔记</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#利用深度学习做基于眼底图片的青光眼诊断和分级"><span class="nav-number">1.</span> <span class="nav-text">利用深度学习做基于眼底图片的青光眼诊断和分级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么做这个题"><span class="nav-number">1.1.</span> <span class="nav-text">为什么做这个题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#眼底图片还能搞一搞"><span class="nav-number">1.1.1.</span> <span class="nav-text">眼底图片还能搞一搞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#青光眼自动诊断的研究现状"><span class="nav-number">1.1.2.</span> <span class="nav-text">青光眼自动诊断的研究现状</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验设计思路"><span class="nav-number">1.2.</span> <span class="nav-text">实验设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可行性分析"><span class="nav-number">1.2.1.</span> <span class="nav-text">可行性分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境"><span class="nav-number">1.2.2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验目的"><span class="nav-number">1.2.3.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验流程"><span class="nav-number">1.2.4.</span> <span class="nav-text">实验流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验步骤代码笔记"><span class="nav-number">1.3.</span> <span class="nav-text">实验步骤、代码、笔记</span></a></li></ol></li></ol></div>
             
 
           </div>
