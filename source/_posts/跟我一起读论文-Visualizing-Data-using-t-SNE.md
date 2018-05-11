@@ -11,7 +11,7 @@ date: 2018-04-04 14:39:32
 ---
 >**ABSTRACT**: t-distributed stochastic neighbor embedding (t-SNE) 由“神经网络之父” Geoffrey Hinton在2008年提出。Fine，这已经为我们拜读原作“Visualizing Data using t-SNE”提供了充分条件……
 
-<!--more-->
+<!-- more -->
 t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而来的一种非线性降维的机器学习算法，在数据可视化方面表现良好，尤其适合现在火热的CNN的可视化。
 
 # 1.Introduction

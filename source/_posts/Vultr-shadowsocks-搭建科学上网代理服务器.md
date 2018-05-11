@@ -1,3 +1,4 @@
+---
 title: Vultr + shadowsocks 搭建科学上网代理服务器
 tags:
   - Vultr
@@ -5,6 +6,8 @@ tags:
   - 科学上网
 categories: Tutorial
 date: 2018-03-29 20:04:11
+id: 20180329200411
+copyright: true
 ---
 作为一个积极与（xiang）世（kan）界（tuo）接（yi）轨（wu）的大好青年，科学上网姿势一定要到位。与其花大价钱去租买各种代理软件，时不时还面临被封IP血本无归的风险，**何不自己租一台境外server搭建自己的服务呢**？毕竟我等工科屌丝动手撸的能力还是阔以的。
 
@@ -61,29 +64,29 @@ Vultr提供的服务器配置包括：
 完全傻瓜式操作
 
 1. 点击右上角的“Deploy now”
-![Deploy now](Vultr-shadowsocks-搭建科学上网代理服务器/deploynow.jpeg)
+![Deploy now](deploynow.jpeg)
 
 2. 选择哪个国家的服务器
-![location](Vultr-shadowsocks-搭建科学上网代理服务器/location.jpeg)
+![location](location.jpeg)
 [官方测速地址](https://www.vultr.com/faq/#downloadspeedtests)
 亲测ping 东京（60ms）和新加坡(90ms)最快，所以我选最便宜的**纽约服务器**（230ms，现在$2.5的只剩**纽约和迈阿密了**）
 3. 装系统
-![server type](Vultr-shadowsocks-搭建科学上网代理服务器/servertype.jpeg)
+![server type](servertype.jpeg)
 安装64位的Ubuntu，版本号16.04 x64。
 > 别装错了，可能会有配置差异
 4. Server size
 反正我选两块五的，你们随意
 5. Additional feature
-![additional](Vultr-shadowsocks-搭建科学上网代理服务器/additional.jpeg)
+![additional](additional.jpeg)
 勾选Enable IPv6，其余默认
 
 然后就可以点击“Deploy now”新建了，初始化几十秒后，可以在左侧“Sever”菜单里看到自己的服务器了。
-![goodnews](Vultr-shadowsocks-搭建科学上网代理服务器/goodnews.png)
+![goodnews](goodnews.png)
 这个“Good news”就是之前说的Twitter分享赚3刀的活动。
 
 点击自己的服务器，可以看到IP、用户名和密码
 
-![account](Vultr-shadowsocks-搭建科学上网代理服务器/serverinfo.jpeg)
+![account](serverinfo.jpeg)
 
 这个IP、用户名、密码是用来后续远程连接
 
@@ -105,7 +108,7 @@ ssh root@140.82.1.1
 回复选yes，然后输入密码
 
 如图显示表示成功连接
-![ssh](Vultr-shadowsocks-搭建科学上网代理服务器/account.jpeg)
+![ssh](account.jpeg)
 
 
 ### 2.2 安装服务
@@ -181,8 +184,8 @@ shadowsocks支持各桌面和移动系统，各版本如下：
 这里讲下macOS、Android、ios的配置方法，其他桌面系统配置类似macOS。
 1. macOS
     安装完成后，状态栏出现一个“飞机”的标志，点开进行如图配置：
-    ![macOS](Vultr-shadowsocks-搭建科学上网代理服务器/performance.jpeg)
-    ![serverconfig](Vultr-shadowsocks-搭建科学上网代理服务器/serverset.jpeg)
+    ![macOS](performance.jpeg)
+    ![serverconfig](serverset.jpeg)
     地址、端口、加密方式、密码按照上文的 /etc/shadowsocks.json 配置文件填
     另外还可以根据自己需要勾选“PAC自动模式”和“全局模式”，以及在“偏好设置”中开启开机自启
     > + PAC自动模式：国内可以访问的站点直接访问，不能直接访问的再走shadowsocks代理，建议选择这种模式
@@ -191,11 +194,11 @@ shadowsocks支持各桌面和移动系统，各版本如下：
 
 配置完成后，我们就可以开始做一些**不可言喻的事情**了
 
-![youtube](Vultr-shadowsocks-搭建科学上网代理服务器/youtube.jpeg)
+![youtube](youtube.jpeg)
 
 额，不好意思放错图了，这张才是
 
-![google](Vultr-shadowsocks-搭建科学上网代理服务器/google.png)
+![google](google.png)
 
 2. Android
 
@@ -237,13 +240,13 @@ sysctl net.ipv4.tcp_available_congestion_control
 # 返回结果为：et.ipv4.tcp_available_congestion_control = bbr cubic reno代表开启成功
 ```
 安装过程如图：
-![BBR](Vultr-shadowsocks-搭建科学上网代理服务器/bbr.jpeg)
+![BBR](bbr.jpeg)
 ## 4. 多用户管理
 有了这等利器，怎么能忍住不分享给女神？
 > 我：在吗
   女神：要睡觉，88
 
-![wait](Vultr-shadowsocks-搭建科学上网代理服务器/wait.jpeg)
+![wait](wait.jpeg)
 > 我：等等！我有梯子！！可以翻墙！！！
 
 多用户配置十分简单，同一个密码端口可以给不限数个终端使用，如果和女神之间没有私密可以直接连接一个端口（羞羞哒）
@@ -277,26 +280,15 @@ ssserver -c /etc/shadowsocks.json -d start
 
 ### 5.1 生成快照
 进入[Vultr官网](https://my.vultr.com/)，在你的控制台左侧选择"Servers"，然后点击"Snapshot"，输入你的快照名，点击生成，耐心等待即可
-![snapshot](Vultr-shadowsocks-搭建科学上网代理服务器/snapshot.png)
+![snapshot](snapshot.png)
 
 ### 5.2 新建服务器
 Destroy之前被封了的服务器
-![Destroy](Vultr-shadowsocks-搭建科学上网代理服务器/destroy.jpeg)
+![Destroy](destroy.jpeg)
 按之前的步骤重新新建服务器，唯一区别是在"server type"那里选择"Snapshot"
-![renew](Vultr-shadowsocks-搭建科学上网代理服务器/newserver.jpeg)
+![renew](newserver.jpeg)
 搞定后就是重新匹配一下shadowsocks的IP了，如果服务器上部署了自己的一些应用（如博客），也都需要修改一下IP指向。
 
 
 ---
 写完啦～
-
----
-**转载请附带以下内容：**
-
-***Author:*** Leoch
-
-***首发Blog:*** [leoch.xyz](http://leoch.xyz)
-
-***Inspired by:***  [flyzy小站](https://www.flyzy2005.com) ，plz refer to it for more information.
-
----
