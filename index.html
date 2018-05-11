@@ -904,17 +904,16 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p><strong>ABSTRACT</strong>: t-distributed stochastic neighbor embedding (t-SNE) 由“神经网络之父” Geoffrey Hinton在2008年提出。Fine，这已经为我们拜读原作“Visualizing Data using t-SNE”提供了充分条件……</p>
 </blockquote>
-<p>&lt;!-- more --&gt;
-t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而来的一种非线性降维的机器学习算法，在数据可视化方面表现良好，尤其适合现在火热的CNN的可视化。</p>
-<h1>1.Introduction</h1>
-<p>高纬数据可视化，在各个领域都有重要作用，用以处理拥有大幅变化纬度的数据。过去很多可视化相关技术被提出，可以参考	[de Oliveira and Levkowitz的综述](From visual data exploration to visual data mining: A survey. IEEE Transactions on Visualization and Computer Graphics, 9(3):378–394, 2003.)。这些研究很多都是简单的提供用以展示高纬数据的工具，而把对结果的解读留给人类观察者。当面对包含千百个纬度的真实世界数据集时，这个缺点会严重制约其适用性。</p>
-<p>与这种研究不同的是，</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/04/0404-143932/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -965,7 +964,7 @@ t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/03/29/cjh1daycq0000409kjeokoq6a/">
+    <link itemprop="mainEntityOfPage" href="http://leoch.xyz/2018/03/29/cjh1flfz30000un9kgaeysd16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leoch">
@@ -984,7 +983,7 @@ t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/29/cjh1daycq0000409kjeokoq6a/" itemprop="url">Vultr + shadowsocks 搭建科学上网代理服务器</a></h1>
+                <a class="post-title-link" href="/2018/03/29/cjh1flfz30000un9kgaeysd16/" itemprop="url">Vultr + shadowsocks 搭建科学上网代理服务器</a></h1>
         
 
         <div class="post-meta">
@@ -1037,8 +1036,8 @@ t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/29/cjh1daycq0000409kjeokoq6a/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/29/cjh1daycq0000409kjeokoq6a/" itemprop="commentCount"></span>
+                <a href="/2018/03/29/cjh1flfz30000un9kgaeysd16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/29/cjh1flfz30000un9kgaeysd16/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1046,7 +1045,7 @@ t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而�
 
           
           
-             <span id="/2018/03/29/cjh1daycq0000409kjeokoq6a/" class="leancloud_visitors" data-flag-title="Vultr + shadowsocks 搭建科学上网代理服务器">
+             <span id="/2018/03/29/cjh1flfz30000un9kgaeysd16/" class="leancloud_visitors" data-flag-title="Vultr + shadowsocks 搭建科学上网代理服务器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1078,218 +1077,15 @@ t-distributed stochastic neighbor embedding (t-SNE) 是在SNE基础上发展而�
 
       
         
-          
-            <p>作为一个积极与（xiang）世（kan）界（tuo）接（yi）轨（wu）的大好青年，科学上网姿势一定要到位。与其花大价钱去租买各种代理软件，时不时还面临被封IP血本无归的风险，<strong>何不自己租一台境外server搭建自己的服务呢</strong>？毕竟我等工科屌丝动手撸的能力还是阔以的。</p>
-<p>搭建一台科学上网server，提起里很麻烦，其实不然，跟着教程，准备一点money（毕竟免费无好货），terminal下一阵操作复制粘贴，就大功告成。具体为以下几步：
-&lt;!-- more --&gt;</p>
-<hr>
-<ol>
-<li>购买Vultr服务器
-1.1 注册
-1.2 新建服务器</li>
-<li>在服务器上安装shadowsocks服务
-2.1 远程连接服务器
-2.2 安装服务</li>
-<li>本地安装shadowsocks管理软件
-3.1 下载shadowsocks
-3.2 配置服务器
-3.3 开启BBR加速</li>
-<li>多用户管理</li>
-<li>IP被封怎么办——服务器快照迁移
-5.1 生成快照
-5.2 新建服务器</li>
-</ol>
-<hr>
-<p>OK，我们一步一步来。</p>
-<h2>1. 购买Vultr服务器</h2>
-<p>境外服务器提供商很多，但是很多都需要按包年或者包月计算，IP被封要重新开通，再次收费。</p>
-<p>在这里推荐Vultr，最低$2.5每月，按小时计费，IP被封后只需要destroy原来的server，迁移到新server就行，不需额外收费。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ul>
-<li>如果server不被destroy（而只是shut down的话），Vultr会一直扣费。</li>
-<li>Vultr提供快照功能，迁移服务器非常方便。</li>
-</ul>
-</blockquote>
-<h3>1.1 注册</h3>
-<p><a href="https://www.vultr.com/?ref=7376052" target="_blank" rel="noopener">点我注册有优惠</a></p>
-<p>&lt;a href=&quot;https://www.vultr.com/?ref=7376052&quot;&gt;&lt;img src=&quot;https://www.vultr.com/media/banner_1.png&quot;&gt;&lt;/a&gt;</p>
-<blockquote>
-<ul>
-<li>2018年新良心活动：<a href="https://www.vultr.com/promo25b?service=promo25b" target="_blank" rel="noopener">新用户充10刀送25刀,Twitter分享再领3刀</a>，租个每个月$2.5的服务器，够用一年了都：）</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>这个活动貌似只支持信用卡、paypal、比特币付费。平时注册是支持支付宝的。不过这年头谁还没个信用卡呢：）</li>
-</ul>
-</blockquote>
-<p>服务器配置：</p>
-<p>Vultr按小时来计费，比如服务器是5美元1个月，那么每小时收费为5/30/24=0.0069美元 会自动从账号中扣费，只要保证账号有钱即可。<strong>server不被destroy就会一直扣费。</strong></p>
-<p>Vultr提供的服务器配置包括：</p>
-<p>2.5美元/月的服务器配置信息：单核 512M内存 20G SSD硬盘 100M带宽 500G流量/月
-5美元/月的服务器配置信息：单核 1G内存 25G SSD硬盘 100M带宽 1000G流量/月
-10美元/月的服务器配置信息：单核 2G内存 40G SSD硬盘 100M带宽 2000G流量/月
-20美元/月...还是不写了，反正我等穷比超过10刀的活动会不会做，大家心里还是有点B树的。</p>
-<h3>1.2 新建服务器</h3>
-<p>完全傻瓜式操作</p>
-<ol>
-<li>
-<p>点击右上角的“Deploy now”
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/deploynow.jpeg" alt="Deploy now"></p>
-</li>
-<li>
-<p>选择哪个国家的服务器
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/location.jpeg" alt="location">
-<a href="https://www.vultr.com/faq/#downloadspeedtests" target="_blank" rel="noopener">官方测速地址</a>
-亲测ping 东京（60ms）和新加坡(90ms)最快，所以我选最便宜的<strong>纽约服务器</strong>（230ms，现在$2.5的只剩<strong>纽约和迈阿密了</strong>）</p>
-</li>
-<li>
-<p>装系统
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/servertype.jpeg" alt="server type">
-安装64位的Ubuntu，版本号16.04 x64。</p>
-</li>
-</ol>
-<blockquote>
-<p>别装错了，可能会有配置差异</p>
-</blockquote>
-<ol start="4">
-<li>Server size
-反正我选两块五的，你们随意</li>
-<li>Additional feature
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/additional.jpeg" alt="additional">
-勾选Enable IPv6，其余默认</li>
-</ol>
-<p>然后就可以点击“Deploy now”新建了，初始化几十秒后，可以在左侧“Sever”菜单里看到自己的服务器了。
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/goodnews.png" alt="goodnews">
-这个“Good news”就是之前说的Twitter分享赚3刀的活动。</p>
-<p>点击自己的服务器，可以看到IP、用户名和密码</p>
-<p><img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/serverinfo.jpeg" alt="account"></p>
-<p>这个IP、用户名、密码是用来后续远程连接</p>
-<p>OK，服务器新建完成！</p>
-<h2>2. 在服务器上安装shadowsocks服务</h2>
-<h3>2.1 远程连接服务器</h3>
-<p>使用ssh协议连接，一般的iMac都预装了ssh。</p>
-<blockquote>
-<p>我的操作环境是macOS iterm，windows可安装xshell连接，请自行百度方法</p>
-</blockquote>
-<p>假设刚新建的服务器的IP是140.82.1.1, 用户是root，密码是1234</p>
-<p>打开iterm，输入
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@140.82.1.1</span><br></pre></td></tr></table></figure></p>
-<p>回复选yes，然后输入密码</p>
-<p>如图显示表示成功连接
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/account.jpeg" alt="ssh"></p>
-<h3>2.2 安装服务</h3>
-<p>接下来就是一阵复制粘贴操作猛如虎</p>
-<blockquote>
-<ul>
-<li>以下的步骤以root权限进行的（Vultr也默认是root用户），如果不是root，要添加 sudo 执行。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>可以使用 who am i 查看当前用户</li>
-</ul>
-</blockquote>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 更新软件源</span><br><span class="line">apt-get update</span><br><span class="line"><span class="meta">#</span> 安装pip环境</span><br><span class="line">apt-get install python-pip</span><br><span class="line"><span class="meta">#</span> 更新pip版本</span><br><span class="line">pip install --upgrade pip</span><br><span class="line"><span class="meta">#</span> 安装setuptools模块</span><br><span class="line">pip install setuptools</span><br><span class="line"><span class="meta">#</span> 安装shadowsocks</span><br><span class="line">pip install shadowsocks</span><br><span class="line"><span class="meta">#</span> 编辑配置文件</span><br><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure></p>
-<p>在/etc/shadowsocks.json中添加
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="number">1024</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"mypassword"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其中，password是你设置的shadowsocks连接密码，不需要和服务器密码一致。</p>
-<p>继续操作
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 赋予shadowsocks配置文件权限</span><br><span class="line">chmod 755 /etc/shadowsocks.json</span><br><span class="line"><span class="meta">#</span> 安装以支持这些加密方式</span><br><span class="line">apt-get install python-m2crypto</span><br><span class="line"><span class="meta">#</span> 后台运行shadowsocks</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line"><span class="meta">#</span> 设置shadowsocks开机自启动</span><br><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure></p>
-<p>在exit 0前面加上shadowsocks的启动命令
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> In order to enable or disable this script just change the execution</span><br><span class="line"><span class="meta">#</span> bits.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> By default this script does nothing.</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure></p>
-<h2>3. 本地安装shadowsocks管理软件</h2>
-<h3>3.1 下载shadowsocks</h3>
-<p>由于<a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="noopener">shadowsocks官网</a>难以访问（原因你懂得），所以可以在<a href="https://github.com/shadowsocks" target="_blank" rel="noopener">全球最大基友交友网站</a>下载。</p>
-<p>shadowsocks支持各桌面和移动系统，各版本如下：</p>
-<blockquote>
-<ul>
-<li>Windows：shadowsocks-windows</li>
-<li>Mac：shadowsocksX-NG</li>
-<li>Linux：shadowsocks-qt5</li>
-<li>Android：shadowsocks-android</li>
-<li>iOS/苹果客户端直接在App Store里搜索shadowsock关键字（或者wingy关键字，FirstWingy可用 2018.03.25），软件经常被下架，我目前用的是Wingy &amp; Shadowrocket，如果找不到，你也可以通过PP助手去下载Shadowrocket</li>
-</ul>
-</blockquote>
-<h3>3.2 配置服务器</h3>
-<p>这里讲下macOS、Android、ios的配置方法，其他桌面系统配置类似macOS。</p>
-<ol>
-<li>macOS
-安装完成后，状态栏出现一个“飞机”的标志，点开进行如图配置：
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/performance.jpeg" alt="macOS">
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/serverset.jpeg" alt="serverconfig">
-地址、端口、加密方式、密码按照上文的 /etc/shadowsocks.json 配置文件填
-另外还可以根据自己需要勾选“PAC自动模式”和“全局模式”，以及在“偏好设置”中开启开机自启
-<blockquote>
-<ul>
-<li>PAC自动模式：国内可以访问的站点直接访问，不能直接访问的再走shadowsocks代理，建议选择这种模式</li>
-<li>全局模式：全局使用shadowsocks代理</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p>配置完成后，我们就可以开始做一些<strong>不可言喻的事情</strong>了</p>
-<p><img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/youtube.jpeg" alt="youtube"></p>
-<p>额，不好意思放错图了，这张才是</p>
-<p><img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/google.png" alt="google"></p>
-<ol start="2">
-<li>
-<p>Android</p>
-</li>
-<li>
-<p>ios</p>
-</li>
-</ol>
-<h3>3.3 开启BBR加速</h3>
-<p>BBR是Google开源的一套内核加速算法，可用于带宽加速（能不能看4K就靠你了）</p>
-<p>在我们的Vultr服务器上，运行如下：
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 检查内核版本</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
-<p>如果版本低于4.9，按照以下步骤先更新内核版本（root权限）
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 确定系统位数</span><br><span class="line">getconf LONG_BIT</span><br><span class="line"><span class="meta">#</span> 在http://kernel.ubuntu.com/~kernel-ppa/mainline/下载最新的程序包</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.2/linux-image-4.10.2-041002-generic_4.10.2-041002.201703120131_amd64.deb</span><br><span class="line"><span class="meta">#</span> 切换到文件下载目录，执行下面的命令进行升级</span><br><span class="line">dpkg -i linux-image-4.10.2-041002-generic_4.10.2-041002.201703120131_amd64.deb</span><br><span class="line"><span class="meta">#</span> 更新grub引导</span><br><span class="line">update-grub</span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
-<p>如果版本高于4.9，可直接安装BBR
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 修改系统变量</span><br><span class="line">echo "net.core.default_qdisc=fq" &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo "net.ipv4.tcp_congestion_control=bbr" &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="meta">#</span> 如果执行以上命令时显示拒绝访问则可以尝试使用如下命令：</span><br><span class="line">sudo bash -c 'echo "net.core.default_qdisc=fq" &gt;&gt; /etc/sysctl.conf'</span><br><span class="line">sudo bash -c 'echo "net.ipv4.tcp_congestion_control=bbr" &gt;&gt; /etc/sysctl.conf'</span><br><span class="line"><span class="meta">#</span> 保存</span><br><span class="line">sysctl -p</span><br><span class="line"><span class="meta">#</span> 查看是否开启成功</span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line"><span class="meta">#</span> 返回结果为：et.ipv4.tcp_available_congestion_control = bbr cubic reno代表开启成功</span><br></pre></td></tr></table></figure></p>
-<p>安装过程如图：
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/bbr.jpeg" alt="BBR"></p>
-<h2>4. 多用户管理</h2>
-<p>有了这等利器，怎么能忍住不分享给女神？</p>
-<blockquote>
-<p>我：在吗
-女神：要睡觉，88</p>
-</blockquote>
-<p><img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/wait.jpeg" alt="wait"></p>
-<blockquote>
-<p>我：等等！我有梯子！！可以翻墙！！！</p>
-</blockquote>
-<p>多用户配置十分简单，同一个密码端口可以给不限数个终端使用，如果和女神之间没有私密可以直接连接一个端口（羞羞哒）</p>
-<p>如果要分开使用，只需要将前文提到等服务器配置文件 /etc/shadowsocks.json 修改下（端口号可以自定义）：
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"port_password"</span>: &#123;</span><br><span class="line">        <span class="attr">"8381"</span>: <span class="string">"NvShenDeMiMa"</span>,</span><br><span class="line">        <span class="attr">"8382"</span>: <span class="string">"WoDeMiMa"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后重启服务即可：
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d stop </span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
-<p>然后在本地shadowsocks软件的服务器配置那里按端口重新填入即可</p>
-<h2>5. IP被封怎么办——服务器快照迁移</h2>
-<p>既然是科学上网，自然IP有经常被封的情况发生</p>
-<p>不要慌！</p>
-<p>前面已经说过，Vultr提供快照迁移功能，灰常方便，如下操作即可</p>
-<h3>5.1 生成快照</h3>
-<p>进入<a href="https://my.vultr.com/" target="_blank" rel="noopener">Vultr官网</a>，在你的控制台左侧选择&quot;Servers&quot;，然后点击&quot;Snapshot&quot;，输入你的快照名，点击生成，耐心等待即可
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/snapshot.png" alt="snapshot"></p>
-<h3>5.2 新建服务器</h3>
-<p>Destroy之前被封了的服务器
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/destroy.jpeg" alt="Destroy">
-按之前的步骤重新新建服务器，唯一区别是在&quot;server type&quot;那里选择&quot;Snapshot&quot;
-<img src="Vultr-shadowsocks-%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/newserver.jpeg" alt="renew">
-搞定后就是重新匹配一下shadowsocks的IP了，如果服务器上部署了自己的一些应用（如博客），也都需要修改一下IP指向。</p>
-<hr>
-<p>写完啦～</p>
-<hr>
-<p><strong>转载请附带以下内容：</strong></p>
-<p><strong><em>Author:</em></strong> Leoch</p>
-<p><strong><em>首发Blog:</em></strong> <a href="http://leoch.xyz">leoch.xyz</a></p>
-<p><strong><em>Inspired by:</em></strong>  <a href="https://www.flyzy2005.com" target="_blank" rel="noopener">flyzy小站</a> ，plz refer to it for more information.</p>
-<hr>
-
-          
+          <p>作为一个积极与（xiang）世（kan）界（tuo）接（yi）轨（wu）的大好青年，科学上网姿势一定要到位。与其花大价钱去租买各种代理软件，时不时还面临被封IP血本无归的风险，<strong>何不自己租一台境外server搭建自己的服务呢</strong>？毕竟我等工科屌丝动手撸的能力还是阔以的。</p>
+<p>搭建一台科学上网server，提起里很麻烦，其实不然，跟着教程，准备一点money（毕竟免费无好货），terminal下一阵操作复制粘贴，就大功告成。具体为以下几步：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/29/cjh1flfz30000un9kgaeysd16/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
