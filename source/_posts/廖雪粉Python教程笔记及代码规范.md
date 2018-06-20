@@ -15,6 +15,50 @@ copyright: true
 
 <!-- more -->
 
+- [廖雪峰Python教程笔记及代码规范（一）](#python)
+    - [函数](#)
+    - [高级特性](#)
+        - [切片](#)
+        - [迭代](#)
+        - [列表生成器](#)
+        - [生成器（generator）](#generator)
+        - [迭代器](#)
+    - [函数式编程](#)
+        - [高级函数](#)
+            - [map/reduce](#map-reduce)
+            - [filter](#filter)
+            - [sorted()](#sorted)
+        - [返回函数](#)
+        - [Decorator](#decorator)
+        - [偏函数](#)
+    - [模块](#)
+        - [创建模块](#)
+    - [注释规范](#)
+        - [注释](#)
+        - [文档字符串](#)
+        - [模块注释](#)
+        - [函数和方法](#)
+        - [类的注释](#)
+        - [块注释和行注释](#)
+    - [类](#)
+        - [类和实例](#)
+        - [访问限制](#)
+        - [继承和多态](#)
+        - [获取对象的信息](#)
+        - [实例属性和类属性](#)
+    - [面向对象高级编程](#)
+        - [__slot__()属性](#slot)
+        - [使用类装饰器@property](#property)
+        - [多重继承](#)
+        - [定制类](#)
+        - [枚举类](#)
+    - [错误，调试和测试](#)
+        - [错误控制](#)
+        - [记录错误](#)
+        - [抛出错误](#)
+        - [调试](#)
+        - [单元测试](#)
+
 # 廖雪峰Python教程笔记及代码规范（一）
 
 ## 函数
@@ -529,7 +573,7 @@ print(xiaotong.gender) # Error
     def set_name(self, name):
         self.__name = name
     ```
-- Python之父Guido推荐的规范
+- Python之父Guido推荐的
 
 | Type                       | Public             | Internal                                                          |
 | -------------------------- | ------------------ | ----------------------------------------------------------------- |
@@ -771,4 +815,352 @@ path = Chain().a.b.user('leoch').file('image')
 print(path)
 ```
 
-### xx
+### 枚举类
+
+枚举类型定义一个class类型，然后，每个常量都是class的一个唯一实例。Python提供了`Enum`类来实现这个功能：
+
+```python
+from enum import Enum
+
+Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+```
+
+这样我们就获得了`Month`类型的枚举类，可以直接使用`Month.Jan`来引用一个常量，或者枚举它的所有成员：
+
+```python
+for name, member in Month.__members__.items():
+    print(name, '=>', member, ',', member.value)
+```
+
+value属性则是自动赋给成员的`int`常量，默认从1开始计数。
+
+如果需要更精确地控制枚举类型，可以从`Enum`派生出自定义类：
+
+```python
+from enum import Enum, unique
+
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+```
+
+`@unique`装饰器可以帮助我们检查保证没有重复值。
+
+## 错误，调试和测试
+
+### 错误控制
+
+```python
+try:
+    print('try...')
+    r = 10 / 0
+    print('result:', r)
+except ZeroDivisionError as e1:
+    print('except:', e1)
+except ValueError as e2:
+    print('except:', e2)
+else:
+    print('no error!')
+finally:
+    print('finally...')
+print('END')
+```
+
+### 记录错误
+
+Python内置的`logging`模块可以非常容易地记录错误信息：
+
+```python
+import logging
+try:
+
+except error  as e1:
+    print('except:', e1)
+    logging.exception(e1)
+```
+
+### 抛出错误
+
+如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用`raise`语句抛出一个错误的实例：
+
+```python
+# err_reraise.py
+
+class FooError(ValueError):
+    pass
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise ValueError('invalid value: %s' % s)
+    return 10 / n
+
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        raise
+
+bar()
+```
+
+### 调试
+
+主要有`print`, `assert`, `logging`, IDE 断点几种方法，主要记录logging
+
+把`print()`替换为`logging`是第3种方式，和`assert`比，`logging`不会抛出错误，而且可以输出到文件：
+
+```python
+import logging
+
+s = '0'
+n = int(s)
+logging.info('n = %d' % n)
+print(10 / n)
+```
+
+`logging.info()`就可以输出一段文本。运行，发现除了`ZeroDivisionError`，没有任何信息。怎么回事？
+
+别急，在`import logging`之后添加一行配置再试试：
+
+```python
+import logging
+logging.basicConfig(level=logging.INFO)
+```
+
+看到输出了：
+
+```bash
+$ python err.py
+INFO:root:n = 0
+Traceback (most recent call last):
+  File "err.py", line 8, in <module>
+    print(10 / n)
+ZeroDivisionError: division by zero
+```
+
+这就是`logging`的好处，它允许你指定记录信息的级别，有`debug，info，warning，error`等几个级别，当我们指定`level=INFO`时，`logging.debug`就不起作用了。同理，指定`level=WARNING`后，`debug`和`info`就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。
+
+`logging`的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。
+
+### 单元测试
+
+编写单元测试时，我们需要编写一个测试类，从`unittest.TestCase`继承。
+
+以`test`开头的方法就是测试方法，不以`test`开头的方法不被认为是测试方法，测试的时候不会被执行。
+
+对每一类测试都需要编写一个`test_xxx()`方法。由于`unittest.TestCase`提供了很多内置的条件判断，我们只需要调用这些方法就可以断言输出是否是我们所期望的。最常用的断言就是`assertEqual()：`和`assertRaises(AttributeError)`
+
+## I/O编程
+
+由于CPU和内存的速度远远高于外设的速度，所以，在IO编程中，就存在速度严重不匹配的问题。举个例子来说，比如要把100M的数据写入磁盘，CPU输出100M的数据只需要0.01秒，可是磁盘要接收这100M数据可能需要10秒，怎么办呢？有两种办法：
+
+第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为**同步IO**；
+
+另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为**异步IO**。
+
+很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂，通知你的方法也各不相同。如果是服务员跑过来找到你，这是回调模式，如果服务员发短信通知你，你就得不停地检查手机，这是轮询模式。总之，异步IO的复杂度远远高于同步IO。
+
+### 文件读写
+
+二进制文件
+前面讲的默认都是读取文本文件，并且是UTF-8编码的文本文件。要读取二进制文件，比如图片、视频等等，用'rb'模式打开文件即可：
+
+```shell
+>>> f = open('/Users/michael/test.jpg', 'rb')
+>>> f.read()
+b'\xff\xd8\xff\xe1\x00\x18Exif\x00\x00...' # 十六进制表示的字节
+字符编码
+```
+
+要读取非UTF-8编码的文本文件，需要给`open()`函数传入`encoding`参数，例如，读取GBK编码的文件：
+
+```shell
+>>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
+>>> f.read()
+'测试'
+```
+
+遇到有些编码不规范的文件，你可能会遇到`UnicodeDecodeError`，因为在文本文件中可能夹杂了一些非法编码的字符。遇到这种情况，`open()`函数还接收一个`errors`参数，表示如果遇到编码错误后如何处理。最简单的方式是直接忽略：
+
+```shell
+>>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
+```
+
+### 操作文件和目录
+
+操作文件和目录
+操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中，这一点要注意一下。查看、创建和删除目录可以这么调用：
+
+```python
+# 查看当前目录的绝对路径:
+>>> os.path.abspath('.')
+'/Users/michael'
+# 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+>>> os.path.join('/Users/michael', 'testdir')
+'/Users/michael/testdir'
+# 然后创建一个目录:
+>>> os.mkdir('/Users/michael/testdir')
+# 删掉一个目录:
+>>> os.rmdir('/Users/michael/testdir')
+```
+
+把两个路径合成一个时，不要直接拼字符串，而要通过`os.path.join()`函数，这样可以正确处理不同操作系统的路径分隔符。在Linux/Unix/Mac下，`os.path.join()`返回这样的字符串：
+`part-1/part-2`
+而Windows下会返回这样的字符串：`part-1\part-2`
+同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过`os.path.split()`函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名：
+
+```python
+>>> os.path.split('/Users/michael/testdir/file.txt')
+('/Users/michael/testdir', 'file.txt')
+os.path.splitext()可以直接让你得到文件扩展名，很多时候非常方便：
+
+>>> os.path.splitext('/path/to/file.txt')
+('/path/to/file', '.txt')
+```
+
+这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作。
+
+文件操作使用下面的函数。假定当前目录下有一个test.txt文件：
+
+```python
+# 对文件重命名:
+>>> os.rename('test.txt', 'test.py')
+# 删掉文件:
+>>> os.remove('test.py')
+```
+
+但是**复制文件的函数居然在os模块中不存在**！原因是复制文件并非由操作系统提供的系统调用。理论上讲，我们通过上一节的读写文件可以完成文件复制，只不过要多写很多代码。
+
+幸运的是`shutil`模块提供了`copyfile()`的函数，你还可以在`shutil`模块中找到很多实用函数，它们可以看做是os模块的补充。
+
+最后看看如何利用Python的特性来过滤文件。比如我们要列出当前目录下的所有目录，只需要一行代码：
+
+```python
+>>> [x for x in os.listdir('.') if os.path.isdir(x)]
+['.lein', '.local', '.m2', '.npm', '.ssh', '.Trash', '.vim', 'Applications', 'Desktop', ...]
+要列出所有的.py文件，也只需一行代码：
+
+>>> [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+['apis.py', 'config.py', 'models.py', 'pymonitor.py', 'test_db.py', 'urls.py', 'wsgiapp.py']
+```
+
+## 进程和线程
+
+### 多进程
+
+Unix/Linux操作系统提供了一个`fork()`系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是`fork()`调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。
+
+子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用`getppid()`就可以拿到父进程的ID。
+
+Python的os模块封装了常见的系统调用，其中就包括fork，可以在Python程序中轻松创建子进程：
+
+```python
+import os
+
+print('Process (%s) start...' % os.getpid())
+# Only works on Unix/Linux/Mac:
+pid = os.fork()
+if pid == 0:
+    print('I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid()))
+else:
+    print('I (%s) just created a child process (%s).' % (os.getpid(), pid))
+```
+> 注意：windows系统使用multiprocessing.Process
+
+### 多线程
+
+[略](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143192823818768cd506abbc94eb5916192364506fa5d000)
+
+### ThreadLocal
+
+[略](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431928972981094a382e5584413fa040b46d46cce48e000)
+
+### 进程 vs 线程
+
+[略](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014319292979766bd3285c9d6b4942a8ea9b4e9cfb48d8000)
+
+### 分布式进程
+
+`master.py`:
+
+```python
+import random, time
+from multiprocessing import Queue
+from multiprocessing.managers import BaseManager
+
+class SpiderManager(BaseManager):
+    pass
+
+task_sender = Queue()
+task_reciever = Queue()
+
+SpiderManager.register('task_sender',callable=lambda: task_sender)
+SpiderManager.register('task_reciever',callable=lambda: task_reciever)
+
+manager = SpiderManager(address=('', 10003), authkey=b'abc')
+manager.start()
+
+task = manager.task_sender()
+result = manager.task_reciever()
+
+for i in range(10):
+    n = random.randint(0, 10000)
+    print('Put task %d...' % n)
+    task.put(n)
+# 从result队列读取结果:
+print('Try get results...')
+for i in range(10):
+    r = result.get(timeout=100)
+    print('Result: %s' % r)
+# 关闭:
+manager.shutdown()
+print('master exit.')
+```
+
+`worker.py`:
+
+```python
+# task_worker.py
+
+import time, sys, queue
+from multiprocessing.managers import BaseManager
+
+# 创建类似的QueueManager:
+class QueueManager(BaseManager):
+    pass
+
+# 由于这个QueueManager只从网络上获取Queue，所以注册时只提供名字:
+QueueManager.register('task_sender')
+QueueManager.register('task_reciever')
+
+# 连接到服务器，也就是运行task_master.py的机器:
+server_addr = '127.0.0.1'
+print('Connect to server %s...' % server_addr)
+# 端口和验证码注意保持与task_master.py设置的完全一致:
+m = QueueManager(address=(server_addr, 10003), authkey=b'abc')
+# 从网络连接:
+m.connect()
+# 获取Queue的对象:
+task = m.task_sender()
+result = m.task_reciever()
+# 从task队列取任务,并把结果写入result队列:
+for i in range(10):
+    try:
+        n = task.get(timeout=1)
+        print('run task %d * %d...' % (n, n))
+        r = '%d * %d = %d' % (n, n, n*n)
+        time.sleep(1)
+        result.put(r)
+    except Queue.Empty:
+        print('task queue is empty.')
+# 处理结束:
+print('worker exit.')
+```
